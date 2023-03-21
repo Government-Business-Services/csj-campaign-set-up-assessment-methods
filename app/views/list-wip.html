@@ -1,0 +1,88 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+Assessments – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<!--
+
+{% set criteria = [] %}
+{% set criteria = data['criteria-behaviours'] %}
+
+<form class="form" action="#" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+      Lorem ipsum
+      </h1>
+
+
+
+
+
+
+      <div class="govuk-summary-card">
+        <div class="govuk-summary-card__title-wrapper">
+          <h2 class="govuk-summary-card__title" style="font-size:22px;color:#1d70b8;">{{ data['method'] | capitalize}}</h2>
+        </div>
+        <div class="govuk-summary-card__content">
+          <dl class="govuk-summary-list">
+
+
+
+            {% for items in criteria %}
+            <div class="govuk-summary-list__row">
+              <dt class="govuk-summary-list__key" style="width:50%">
+                <p class="govuk-body-m"><strong>{{ items }}</strong></p>
+
+              </dt>
+
+
+              <dd class="govuk-summary-list__value" style="width:40%">
+                <ul class="govuk-list govuk-list--bullet">
+                  {% for method in methods | slice(1) %}
+                  <li><p class="govuk-body-m">{{ method }}</p></li>
+                  {% endfor %}
+                </ul>
+
+              </dd>
+              <dd class="govuk-summary-list__actions">
+                <a class="govuk-link" href="#" style="padding-right:10px">
+                  Change<span class="govuk-visually-hidden"> age</span>
+                </a>
+                <a class="govuk-link" href="#" style="padding-left:10px">
+                  Delete<span class="govuk-visually-hidden"> age</span>
+                </a>
+              </dd>
+            </div>
+            {% endfor %}
+
+
+          </dl>
+        </div>
+      </div>
+
+
+
+
+
+
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+
+    </form>
+ -->
+
+
+
+
+    {% endblock %}

@@ -12,17 +12,19 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 <form class="form" action="list?method=behaviours" method="post">
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
   <h1 class="govuk-heading-l">
     When do you want to assess {{ data['method'] }}?
   </h1>
 
-
-  <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ data['criteria-behaviours'] }}</h2>
-  <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ data['methods-behaviours']| slice(1) }}</h2>
-
-
-
+  <div style="border:1px solid #1d70b8; border-radius:8px;padding:10px">
+  <h2 class="govuk-heading-m" style="color:#1d70b8" >{{ data['criteria-behaviours'] }}</h2>
+  <ul class="govuk-list govuk-list--bullet-">
+    {% for method in data['methods-behaviours'] %}
+    <li><p class="govuk-body-m"><strong>{{ method }}</strong></p></li>
+    {% endfor %}
+  </ul>
+  </div>
 
 
 

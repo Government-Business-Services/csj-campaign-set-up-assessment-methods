@@ -18,15 +18,21 @@ When will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Proto
 
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-full">
+    <div class="govuk-grid-column-two-thirds">
 
   <h1 class="govuk-heading-l">
     When do you want to assess this {{ data['method'] }}?
   </h1>
 
-      <h2 class="govuk-heading-m">{{ data['criteria-experience'] }}</h2>
 
-    <h2 class="govuk-heading-m">{{ data['methods-experience'] }}</h2>
+    <div style="border:1px solid #1d70b8; border-radius:8px;padding:10px">
+    <h2 class="govuk-heading-m" style="color:#1d70b8" >{{ data['criteria-experience'] }}</h2>
+    <ul class="govuk-list govuk-list--bullet-">
+      {% for method in data['methods-experience'] %}
+      <li><p class="govuk-body-m"><strong>{{ method }}</strong></p></li>
+      {% endfor %}
+    </ul>
+    </div>
 
 
 
