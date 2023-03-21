@@ -1,0 +1,66 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% set behavioursMethods = ['Application form','CV','Statement of suitability','Civil Service Judgement Test','CS Management Judgement Test','Interview','Presentation','Written exercise'] %}
+
+
+<form class="form" action="when" method="post">
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+  <h1 class="govuk-heading-l">How will you assess {{ data['method']}}?</h1>
+
+  <p class="govuk-body-m">Understand how your role fits with and supports organisational objectives.
+  Recognise the wider Civil Service priorities and ensure work is in the
+  national interest.</p>
+
+
+{{ data['criteria-behaviours'] }}
+
+  {% for items in data['criteria-behaviours'] %}
+
+
+
+
+
+
+
+
+
+
+
+  <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+  {% for methods in behavioursMethods %}
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="behMethods" name="behMethods" type="checkbox"  value="{{methods}}">
+    <label class="govuk-label govuk-checkboxes__label" name="behlabel" id="behlabel" for="behMethods" value="{{items}}">
+      {{ methods }}
+    </label>
+  </div>
+  {%- endfor %}
+  {%- endfor %}
+
+
+
+
+      <div>
+    <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+    </div>
+    </div>
+
+
+  </div>
+
+</form>
+    {% endblock %}

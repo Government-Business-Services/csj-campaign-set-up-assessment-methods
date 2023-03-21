@@ -1,0 +1,68 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% set criteria =[]%}
+{% if data['method'] == "ability" %}
+{% set crit = data['ability1'] | truncate(80) %}
+{% set criteria = (criteria.push(crit), criteria) %}
+{% set methods = data['ablMethods'] %}
+{% endif %}
+
+{% if data['method'] == "behaviours" %}
+{% set crit = data['criteria-behaviours'] %}
+{% set criteria = (criteria.push(crit), criteria) %}
+{% set methods = data['behMethods'] | first %}
+{% endif %}
+
+
+
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title" style="font-size:30px;color:#1d70b8;">{{ data['method'] | capitalize}}</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+
+
+
+  {% for items in criteria %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key" style="width:50%">
+            <p class="govuk-body-m"><strong>{{ items }}</strong></p>
+
+          </dt>
+
+
+          <dd class="govuk-summary-list__value" style="width:40%">
+            <ul class="govuk-list govuk-list--bullet">
+                      {% for method in data['behMethods'] | last | slice(1) %}
+                      <li><p class="govuk-body-m">{{ method }}</p></li>
+    {% endfor %}
+            </ul>
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#" style="padding-right:10px">
+              Change<span class="govuk-visually-hidden"> age</span>
+            </a>
+            <a class="govuk-link" href="#" style="padding-left:10px">
+              Delete<span class="govuk-visually-hidden"> age</span>
+            </a>
+          </dd>
+        </div>
+          {% endfor %}
+
+
+      </dl>
+    </div>
+  </div>
+
+{% endblock %}

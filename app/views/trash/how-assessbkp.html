@@ -1,0 +1,84 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<form class="form" action="list" method="post">
+
+  <h1 class="govuk-heading-l">How will you assess {{ data['method']}}?</h1>
+
+
+  {% if data['method'] == "experience" %}
+  <p class="govuk-body">Experience</p>
+  {% endif %}
+
+
+  {% if data['method'] == "behaviours" %}
+  <p class="govuk-body">Behaviours</p>
+  {% endif %}
+
+
+  {% if data['method'] == "ability" %}
+  <p class="govuk-body">Ability</p>
+  {% endif %}
+
+  {% if data['method'] == "strengths" %}
+  <p class="govuk-body">Strengths{{ data['streCheck'] }}</p>
+  {% endif %}
+
+
+  {% if data['method'] == "technical" %}
+  <p class="govuk-body">Technical</p>
+  {% endif %}
+
+
+
+  {% set behavioursMethods = ['Application form','CV','Statement of suitability','Civil Service Judgement Test','CS Management Judgement Test','Interview','Presentation','Written exercise'] %}
+
+
+  {% if data['behave1'].length > 0 %}
+
+  {% for items in data['behave1'] | slice(1) %}
+  {% for item in items %}
+  <p class="govuk-body {{ loop.index }}">
+
+    {{ item }}
+  </p>
+
+  <div class="govuk-form-group">
+    {%- for items in behavioursMethods | slice(1) %}
+    <div class="govuk-checkboxes-{{ loop.index }}" data-module="govuk-checkboxes" name="interviewbeh" value="{{ item }}">
+      {%- for item in items %}
+      <div class="govuk-checkboxes__item">
+
+        <input class="govuk-checkboxes__input" id="interviewbeh" name="interviewbeh" type="checkbox" value="{{ item }}">
+
+        <label class="govuk-label govuk-checkboxes__label" for="interviewbeh">{{ item }}</label></div>
+        {%- endfor %}
+
+      </div>
+      {%- endfor %}
+
+    </div>
+
+
+
+
+
+
+
+
+    {% endfor %}
+    {% endfor %}
+    {% else %}
+    {% endif %}
+    <button class="govuk-button" data-module="govuk-button">Continue</button>
+    {% endblock %}

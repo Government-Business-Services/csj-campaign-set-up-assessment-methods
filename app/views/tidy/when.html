@@ -1,0 +1,125 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+What do you want to assess? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="/list" method="post">
+
+
+  <h1 class="govuk-heading-l">
+    When do you want to assess {{ data['method'] }}?
+  </h1>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+{% set criteria = [] %}
+{% set methods = [] %}
+
+      {% if data['method'] == "skills" %}
+        {% set crit = data['skill1'] %}
+        {% set criteria = (criteria.push(crit), criteria) %}
+        {% set methods = data['sklMethods'] %}
+
+      {% endif %}
+
+      {% if data['method'] == "behaviours" %}
+        {% set criteria = data['criteria-behaviours'] %}
+        {% set methods = data['methods-behaviours'] %}
+
+      {% endif %}
+
+      {% if data['method'] == "experience" %}
+        {% set criteria = data['experience1'] %}
+        {% set methods = data['expMethods'] %}
+
+      {% endif %}
+
+      {% if data['method'] == "strengths" %}
+      {% set criteria = data['str'] %}
+      {% set methods = data['strMethods']  %}
+
+      {% endif %}
+
+      {% if data['method'] == "ability" %}
+      {% set crit = data['ability1'] %}
+        {% set criteria = (criteria.push(crit), criteria) %}
+        {% set methods = data['ablMethods'] %}
+
+      {% endif %}
+
+
+
+
+  <div style="border-radius:5px;border:0.75px grey solid;padding:20px">
+    <dl class="govuk-summary-list  govuk-summary-list--no-border">
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          {{ data['method'] | capitalize }}
+        </dt>
+        <dd class="govuk-summary-list__value" style="">
+<ul class="govuk-list govuk-list--bullet">
+          {% for items in criteria %}
+          <li><p class="govuk-body-m">{{ items }}</p></li>
+
+          {% endfor %}
+</ul>
+        </dd>
+      </div>
+      <div class="govuk-summary-list__row">
+        <dt class="govuk-summary-list__key">
+          Assessment methods
+        </dt>
+        <dd class="govuk-summary-list__value ">
+          <ul class="govuk-list govuk-list--bullet">
+
+          {% for meth in methods %}
+              <li><p class="govuk-body-m">{{ meth }}</p></li>
+
+          {% endfor %}
+          </ul>
+        </dd>
+      </div>
+    </dl>
+
+
+
+  </div>
+  <hr style="border:0px" class="govuk-!-margin-bottom-1 govuk-!-margin-top-0">
+
+  <div style="padding-top:20px; padding-bottom:20px;padding-left:10px;" class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+      <h2 class="govuk-fieldset__heading">
+        Recruitment stage
+      </h2>
+    </legend>
+    <div id="changed-name-hint" class="govuk-hint">
+      Information or guidance lorem ipsum dolor sit amet.
+    </div>
+    <div class="govuk-radios__item">
+
+      <input class="govuk-radios__input" id="when-assess-application" name="when-assess" type="radio"  value="At application">
+      <label class="govuk-label govuk-radios__label" for="when-assess">
+        At application
+      </label>
+    </div>
+    <div class="govuk-radios__item">
+      <input class="govuk-radios__input" id="when-assess-interview" name="when-assess" type="radio"  value="At interview">
+      <label class="govuk-label govuk-radios__label" for="when-assess">
+        At interview
+      </label>
+    </div>
+  </div>
+  <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+
+</div>
+</div>
+</form>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="experiment2" method="post">
+
+{% set abilityMethods = ['Civil Service Verbal Test','Civil Service Numerical Test','Customer Service Test','Casework Test'] %}
+{% set special = ['Kung fu','levitating','singing','dancing'] %}
+
+
+{% from "govuk/components/textarea/macro.njk" import govukTextarea %}
+{% for entry in special %}
+{{ govukTextarea({
+  label: {
+    text: "Ability"
+  },
+  id: "ability1",
+  rows: "3",
+  name: "ability1",
+  value: data['entry'],
+  hint: {
+text: "Something supportive or constructive."
+}
+}) }}
+
+{% endfor %}
+
+
+<button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+</form>
+
+
+
+{% endblock %}

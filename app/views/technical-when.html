@@ -1,0 +1,58 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="list?method=skill" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-l">
+        When do you want to assess this {{ data['method'] }}?
+      </h1>
+      <div style="border:1px solid #1d70b8; border-radius:8px;padding:10px">
+      <h2 class="govuk-heading-m" style="color:#1d70b8" >{{ data['criteria-skill'] }}</h2>
+      <ul class="govuk-list govuk-list--bullet-">
+        {% for method in data['methods-skills'] %}
+        <li><p class="govuk-body-m"><strong>{{ method }}</strong></p></li>
+        {% endfor %}
+      </ul>
+      </div>
+
+      <hr style="border:0px" class="govuk-!-margin-bottom-6 govuk-!-margin-top-0">
+
+      <div style="padding-top:20px; padding-bottom:20px;" class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+          <h2 class="govuk-fieldset__heading">
+            Select the recruitment stage
+          </h2>
+        </legend>
+        <div id="changed-name-hint" class="govuk-hint">
+          Information or guidance lorem ipsum dolor sit amet.
+        </div>
+        <div class="govuk-radios__item">
+
+          <input class="govuk-radios__input" id="when-assess-application" name="when-assess" type="radio"  value="At application">
+          <label class="govuk-label govuk-radios__label" for="when-assess">
+            At application
+          </label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="when-assess-interview" name="when-assess" type="radio"  value="At interview">
+          <label class="govuk-label govuk-radios__label" for="when-assess">
+            At interview
+          </label>
+        </div>
+      </div>
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+    </div>
+  </div>
+</form>
+{% endblock %}

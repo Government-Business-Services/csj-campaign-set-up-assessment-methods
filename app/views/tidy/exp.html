@@ -1,0 +1,42 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% set behavioursMethods = ['Application form','CV','Statement of suitability','Civil Service Judgement Test','CS Management Judgement Test','Interview','Presentation','Written exercise'] %}
+{% set subset = ['Interview','Presentation','Written exercise'] %}
+
+
+
+{% for i in a %}
+    {% for j in i %}
+        {{loop.parent.index}}
+    {% endfor %}
+{% endfor %}
+
+
+
+{% for i in data['behave1'] %}
+{% for j in data['interviewbeh'] %}
+{{loop.index}}
+{{ i }} {{ j }}
+{% endfor %}
+{% endfor %}
+
+<!-- {{ data['behave1']}}
+{{ data['interviewbeh']}} -->
+    <!-- {% for i in data['behave1']%}
+     %}
+    {% for j in i  %}
+        {{loop.index}}
+        {{ j+i }}
+    {% endfor %}
+    {% endfor %} -->
+
+{% endblock %}

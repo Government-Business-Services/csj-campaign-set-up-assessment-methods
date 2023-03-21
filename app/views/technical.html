@@ -1,0 +1,36 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="technical-how?method=skill" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        What technical knowledge or skills would you like to assess?
+      </h1>
+      <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-2" id="skl1">
+        {{ govukTextarea({
+          label: {
+            text: ""
+          },
+          id: "criteria-skill",
+          rows: "3",
+          name: "criteria-skill",
+          value: data['criteria-skill'],
+          hint: {
+            text: "Guidance ut enim ad minim veniam, quis nostrud exercitation."
+          }
+        }) }}
+
+        <!-- <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('skl2')">Add another skill</a> -->
+      </div>
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+    </form>
+    {% endblock %}

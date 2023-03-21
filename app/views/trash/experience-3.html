@@ -1,0 +1,92 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+Experience – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="exp4?method=experience" method="post">
+
+
+  <script>
+    function showDiv(div){
+      document.getElementById(div).style.display = 'block';
+    }
+
+    function hideDiv(div){
+      document.getElementById(div).style.display = 'none';
+    }
+  </script>
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <h1 class="govuk-heading-l">
+        What {{ data['select-assess']}} do you want to assess?
+      </h1>
+
+      <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-2" id="exp1">
+      {{ govukTextarea({
+        label: {
+          text: "Experience 1"
+        },
+        id: "experience1",
+        rows: "3",
+        name: "experience1",
+        value: data['experience1'],
+        hint: {
+    text: "Something supportive or constructive."
+  }
+      }) }}
+
+      <!-- <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('exp2')">Add another experience</a> -->
+</div>
+
+
+
+
+
+<div class="govuk-!-margin-top-7 govuk-!-margin-bottom-2" id="exp2" style="display:none">
+      {{ govukTextarea({
+        label: {
+          text: "Experience 2"
+        },
+        id: "experience2",
+          rows: "3",
+        name: "experience2",
+        value: data['experience2']
+      }) }}
+
+      <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('exp3')">Add another experience</a>
+</div>
+
+
+
+<div class="govuk-!-margin-top-7 govuk-!-margin-bottom-2" id="exp3" style="display:none">
+      {{ govukTextarea({
+        label: {
+          text: "Experience 3"
+        },
+        id: "experience3",
+          rows: "3",
+        name: "experience3",
+          value: data['experience3']
+      }) }}
+
+</div>
+
+
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+
+
+
+
+
+
+
+{% endblock %}

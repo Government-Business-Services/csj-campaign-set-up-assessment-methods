@@ -1,0 +1,71 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="technical-when?method=skill" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        How will you assess this {{ data['method'] }}?
+      </h1>
+
+      {{ govukTextarea({
+        label: {
+          text: ""
+        },
+        id: "criteria-skill",
+        rows: "3",
+        name: "criteria-skill",
+        value: data['criteria-skill'],
+        hint: {
+          text: "Guidance ut enim ad minim veniam, quis nostrud exercitation."
+        }
+      }) }}
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-skills-methods" name="methods-skills" type="checkbox" value="Application form">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-skills-methods">
+            Application form
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-skills-methods-2" name="methods-skills" type="checkbox" value="cv">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-skills-methods-2">
+            CV
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-skills-methods-3" name="methods-skills" type="checkbox" value="Technical presentation">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-skills-methods-3">
+            Technical presentation
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-skills-methods-4" name="methods-skills" type="checkbox" value="Technical test(s)">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-skills-methods-4">
+            Technical test(s)
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-skills-methods-5" name="methods-skills" type="checkbox" value="Interview questions">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-skills-methods-5">
+            Interview questions
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-skills-methods-6" name="methods-skills" type="checkbox" value="Work sample(s) or portfolio">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-skills-methods-6">
+            Work sample(s) or portfolio
+          </label>
+        </div>
+        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+      </form>
+      {% endblock %}

@@ -1,0 +1,70 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="#" method="post">
+
+
+  {% set things = [] %}
+
+  {% set things = (things.push("id : 'thing1', name : 'Thing1'"), things) %}
+  {% set things = (things.push("id : 'thing2', name : 'Thing2'"), things) %}
+  {% set structure = [
+    ['behaviours','seeing the big picture','supporting statement','application'],
+      ['experience','managing a contact centre team','supporting statement','application'],
+        ['ability','strong written ability','verbal reasoning test','application'],
+          ['skills','customer service','cs customer services test','application'],
+            ['strengths','resilient','interview','interview'] ] %}
+
+
+  {% for thing, things in things %}
+  {{ thing.id }} {{ thing.name }}
+  {{ thing }}
+  {% endfor %}
+
+
+
+
+  {% set blkStructure = [[]] %}
+
+
+{% set structure = [
+  ['behaviours','seeing the big picture','supporting statement','application'],
+    ['experience','managing a contact centre team','supporting statement','application'],
+      ['ability','strong written ability','verbal reasoning test','application'],
+        ['skills','customer service','cs customer services test','application'],
+          ['strengths','resilient','interview','interview'] ] %}
+
+{% set tmp = ['1','2','3',''] %}
+
+
+
+{% set line = ['behaviours','seeing the big picture','supporting statement','application'] %}
+
+{% set a = 'behaviours' %}{% set b = 'seeing the big picture' %}{% set c = 'supporting statement' %}{% set d = 'application' %}
+
+
+ {% set blkStructure = (blkStructure.push(a), blkStructure) %}
+ {% set blkStructure = (blkStructure.push(b), blkStructure) %}
+{% set blkStructure = (blkStructure.push(c), blkStructure) %}
+{% set blkStructure = (blkStructure.push(d), blkStructure) %}
+
+
+
+{% set list = [ ['behaviours','seeing the big picture'],['experience','contact centre mgmt'] ] %}
+
+
+
+
+
+<button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+</form>
+
+{% endblock %}

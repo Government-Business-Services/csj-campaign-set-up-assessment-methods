@@ -1,0 +1,67 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+When will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="list?method=experience" method="post">
+
+  {% set experienceMethods = ['Application form','CV','Interview','Statement of suitability'] %}
+
+
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+  <h1 class="govuk-heading-l">
+    When do you want to assess this {{ data['method'] }}?
+  </h1>
+
+      <h2 class="govuk-heading-m">{{ data['criteria-experience'] }}</h2>
+
+    <h2 class="govuk-heading-m">{{ data['methods-experience'] }}</h2>
+
+
+
+
+<hr style="border:0px" class="govuk-!-margin-bottom-1 govuk-!-margin-top-0">
+
+<div style="padding-top:20px; padding-bottom:20px;padding-left:10px;" class="govuk-radios govuk-radios--inline" data-module="govuk-radios">
+  <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+    <h2 class="govuk-fieldset__heading">
+      Recruitment stage
+    </h2>
+  </legend>
+  <div id="changed-name-hint" class="govuk-hint">
+    Information or guidance lorem ipsum dolor sit amet.
+  </div>
+  <div class="govuk-radios__item">
+
+    <input class="govuk-radios__input" id="when-assess-application" name="when-assess" type="radio"  value="At application">
+    <label class="govuk-label govuk-radios__label" for="when-assess">
+      At application
+    </label>
+  </div>
+  <div class="govuk-radios__item">
+    <input class="govuk-radios__input" id="when-assess-interview" name="when-assess" type="radio"  value="At interview">
+    <label class="govuk-label govuk-radios__label" for="when-assess">
+      At interview
+    </label>
+  </div>
+</div>
+<button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+</div>
+</div>
+
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% set strengthsMethods = ['Interview questions','Civil Service Work Strengths Test'] %}
+
+<script>
+  function showDiv(div){
+    document.getElementById(div).style.display = 'block';
+    document.getElementById('list').style.display = 'none';
+  }
+
+  function hideDiv(div){
+    document.getElementById(div).style.display = 'none';
+    document.getElementById('list').style.display = 'block';
+  }
+</script>
+
+
+<form class="form" action="strengths-when?method=strengths" method="post">
+  <p class="govuk-body-s"><a onclick="showDiv('summ')" href="#" style="color: black;float:right;font-size:20px">◉</a></p>
+  <p class="govuk-body-s"><a onclick="hideDiv('summ')" href="#" style="color: darkblue;padding-right:20px;float:right;font-size:20px">❖</a></p>
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        How will you assess these {{ data['method'] }}?
+      </h1>
+
+<div id="list">
+
+
+      {% for items in data['str'] %}
+
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+      {% for methods in strengthsMethods %}
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="strMethods" name="strMethods" type="checkbox" value="{{methods}}">
+        <label class="govuk-label govuk-checkboxes__label" for="strMethods">
+          {{ methods }}
+        </label>
+      </div>
+
+
+      {%- endfor %}
+      {%- endfor %}
+
+</div>
+
+      <div id="summ" style="display:none" class="govuk-form-group">
+        {% for items in data['str'] | slice(1) %}
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+        <div class="govuk-checkboxes-{{ loop.index }}" data-module="govuk-checkboxes" name="methods-strengths">
+          {% for methods in strengthsMethods %}
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="sel-methods-strengths" name="sel-methods-strengths" type="checkbox" value="{{ methods }}">
+
+            <label class="govuk-label govuk-checkboxes__label" for="sel-methods-strengths" value="{{ items }}"> {{ methods }}</label></div>
+            {%- endfor %}
+          </div>
+          {%- endfor %}
+        </div>
+      </div>
+    </div>
+    <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+  </form>
+  {% endblock %}

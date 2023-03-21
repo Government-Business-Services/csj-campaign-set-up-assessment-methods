@@ -1,0 +1,34 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="#" method="post">
+
+{% set abilityMethods = ['Civil Service Verbal Test','Civil Service Numerical Test','Customer Service Test','Casework Test'] %}
+{% set special = ['Kung fu','levitating','singing','dancing'] %}
+{% set things = [] %}
+
+
+{% for items in data['behave1'] %}
+{% for things in data['behMethods'] %}
+{{[loop.index1]}}
+  {{ items }} {{things}}
+{% endfor %}
+{% endfor %}
+
+
+
+
+<button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+</form>
+
+
+
+{% endblock %}

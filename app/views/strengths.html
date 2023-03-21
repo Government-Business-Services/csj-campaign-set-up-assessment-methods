@@ -1,0 +1,48 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Question page template – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+{% set strengths = ['Adaptable','Analytical','Authentic','Catalyst','Challenger','Change Agent','Courageous','Decisive','Efficient','Emotionally Intelligent','Enabler','Explainer','Focussed','Improver','Inclusive','Influencer','Learner','Mediator','Mission','Motivator','Negotiator','Networker','Organiser','Precise','Preventer','Problem Solver','Relationship Builder','Resilient','Responsible','Service Focussed','Strategic','Team Leader','Team Player','Visionary'] %}
+
+
+<form class="form" action="strengths-how?method=strengths" method="post">
+
+  <div class="govuk-grid-row">
+    <h1 class="govuk-heading-l">
+      Which strengths would you like to assess?
+    </h1>
+    <div class="govuk-grid-column-one-half">
+
+      <div class="govuk-checkboxes govuk-checkboxes--small {{ loop.index }}" data-module="govuk-checkboxes" name="str">
+        {% for strength in strengths.slice(0,17) %}
+
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="str" name="str" value="{{strength}}" type="checkbox">
+
+          <label class="govuk-label govuk-checkboxes__label" for="str"> {{ strength }}</label></div>
+          {%- endfor %}
+        </div>
+      </div>
+      <div class="govuk-grid-column-one-half">
+        <div class="govuk-checkboxes govuk-checkboxes--small {{ loop.index }}" data-module="govuk-checkboxes" name="str" value="{{ data['str']}}">
+          {% for strength in strengths.slice(17,34) %}
+
+          <div class="govuk-checkboxes__item">
+            <input class="govuk-checkboxes__input" id="str" name="str" value="{{strength}}" type="checkbox">
+
+            <label class="govuk-label govuk-checkboxes__label" for="str"> {{ strength }}</label></div>
+            {%- endfor %}
+          </div>
+        </div>
+
+        <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+      </form>
+      {% endblock %}

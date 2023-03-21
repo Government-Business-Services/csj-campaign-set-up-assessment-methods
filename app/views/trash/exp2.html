@@ -1,0 +1,22 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+
+
+<ul>
+  {% for item in myArr %}
+    <li>{{item}} - {{myObj[item].title}}</li>
+  {% endfor %}
+</ul>
+
+{% endblock %}

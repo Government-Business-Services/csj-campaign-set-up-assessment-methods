@@ -1,0 +1,52 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% set abilityMethods = ['Civil Service Verbal Test','Civil Service Numerical Test','Customer Service Test','Casework Test', 'Some other test'] %}
+
+{% set ablArray = [] %}
+
+<form class="form" action="ability-when?method=ability" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-l">
+        How will you assess this {{ data['method'] }}?
+      </h1>
+
+      {{ govukTextarea({
+        label: {
+          text: ""
+        },
+        id: "criteria-ability",
+        rows: "3",
+        name: "criteria-ability",
+        value: data['criteria-ability'],
+        hint: {
+          text: "Guidance ut enim ad minim veniam, quis nostrud exercitation."
+        }
+      }) }}
+
+
+    
+      {% for ablMethods in abilityMethods %}
+      <div class="govuk-checkboxes__item">
+        <input class="govuk-checkboxes__input" id="ablMethods" name="ablMethods" type="checkbox" value="{{ablMethods}}">
+        <label class="govuk-label govuk-checkboxes__label" for="ablMethods">
+          {{ ablMethods }}
+        </label>
+      </div>
+
+      {%- endfor %}
+
+    </div>
+  </div>
+  <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+</form>
+{% endblock %}

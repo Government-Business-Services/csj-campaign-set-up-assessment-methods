@@ -1,0 +1,85 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="#" method="post">
+
+{% from "govuk/components/checkboxes/macro.njk" import govukCheckboxes %}
+
+{% for methods in data['criteria-behaviours'] | slice(1) %}
+
+<h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ item }}</h2>
+
+
+<div class="govuk-checkboxes" data-module="govuk-checkboxes">
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods" name="methods-behaviours" type="checkbox" value="application-form">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods">
+      Application form
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods-2" name="methods-behaviours" type="checkbox" value="cv">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods-2">
+      CV
+    </label>
+  </div>
+
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods-3" name="methods-behaviours" type="checkbox" value="statement-of-suitability">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods-3">
+      Statement of suitability
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods-4" name="methods-behaviours" type="checkbox" value="cs-management-judgement-test">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods-4">
+      CS Management Judgement Test
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods-5" name="methods-behaviours" type="checkbox" value="cs-judgement-test">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods-5">
+      CS Judgement Test
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods-6" name="methods-behaviours" type="checkbox" value="interview-questions">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods-6">
+      Interview questions
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods-7" name="methods-behaviours" type="checkbox" value="presentation">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods-7">
+      Presentation
+    </label>
+  </div>
+  <div class="govuk-checkboxes__item">
+    <input class="govuk-checkboxes__input" id="choose-behaviour-methods-8" name="behaviours[methods]" type="checkbox" value="written-behaviour-statements">
+    <label class="govuk-label govuk-checkboxes__label" for="choose-behaviour-methods-8">
+      Written behaviour statements
+    </label>
+  </div>
+</div>
+{% endfor %}
+
+
+{% for item in data['behave1'] | slice(1) %}
+{{ data['selected-behaviours'][item] }}
+
+{% endfor %}
+<button class="govuk-button" onclick="showDiv('row2')" data-module="govuk-button">Continue</button>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,90 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+  <form class="form" action="behaviours-when?method=behaviours" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+
+      <h1 class="govuk-heading-l">
+        Which behaviours would you like to  to assess?
+      </h1>
+        {% for items in data['criteria-behaviours'] %}
+
+        <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+
+
+        {{ govukCheckboxes({
+        id: "methods-behaviours",
+        name: "methods-behaviours",
+        classes: "govuk-checkboxes",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+          {
+            id: "methods-behaviours1",
+            value: "Application form",
+            text: "Application form",
+            checked: checked("methods-behaviours{{loop.index}}", "Application form")
+          },
+          {
+            id: "methods-behaviours2",
+            value: "CV",
+            text: "CV",
+            checked: checked("methods-behaviours{{loop.index}}", "CV")
+          },
+          {
+            id: "methods-behaviours3",
+            value: "Statement of suitability",
+            text: "Statement of suitability",
+            checked: checked("methods-behaviours{{loop.index}}", "Statement of suitability")
+          },
+
+          {
+            id: "methods-behaviours4",
+            value: "Civil Service Judgement Test",
+            text: "Civil Service Judgement Test",
+            checked: checked("methods-behaviours{{loop.index}}", "Civil Service Judgement Test")
+          },
+          {
+            id: "methods-behaviours5",
+            value: "Civil Service Management Judgement Test",
+            text: "Civil Service Management Judgement Test",
+            checked: checked("methods-behaviours{{loop.index}}", "Civil Service Management Judgement Test")
+          },
+          {
+            id: "methods-behaviours6",
+            value: "Interview questions",
+            text: "Interview questions",
+            checked: checked("methods-behaviours{{loop.index}}", "Interview questions")
+          },
+            {
+              id: "methods-behaviours7",
+              value: "Presentation",
+              text: "Presentation",
+              checked: checked("methods-behaviours{{loop.index}}", "Presentation")
+            },
+          {
+            id: "methods-behaviours8",
+            value: "Written behaviours statements",
+            text: "Written behaviours statements",
+            checked: checked("methods-behaviours{{loop.index}}", "Written behaviours statements")
+          }
+        ]
+        }) }}
+        {% endfor %}
+        <button class="govuk-button" data-module="govuk-button">Continue</button>
+      </form>
+{% endblock %}
