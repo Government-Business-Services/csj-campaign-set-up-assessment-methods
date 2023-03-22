@@ -1,0 +1,73 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="experience-when?method=experience" method="post">
+  {% set experienceMethods = ['Application form','CV','Interview','Statement of suitability'] %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        How do you want to assess this experience?
+      </h1>
+
+      {{ govukTextarea({
+        label: {
+          text: ""
+        },
+        id: "criteria-experience",
+        rows: "3",
+        name: "criteria-experience",
+        value: data['criteria-experience']
+      }) }}
+
+
+</div>
+      <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+
+
+
+
+
+
+
+      <div class="govuk-checkboxes" data-module="govuk-checkboxes">
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-experience-methods" name="methods-experience" type="checkbox" value="Application form">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods">
+            Application form
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-experience-methods-2" name="methods-experience" type="checkbox" value="CV">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-2">
+            CV
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-experience-methods-3" name="methods-experience" type="checkbox" value="Statement of suitability">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-3">
+            Statement of suitability
+          </label>
+        </div>
+        <div class="govuk-checkboxes__item">
+          <input class="govuk-checkboxes__input" id="choose-experience-methods-4" name="methods-experience" type="checkbox" value="Interview questions">
+          <label class="govuk-label govuk-checkboxes__label" for="choose-experience-methods-4">
+            Interview questions
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+
+</form>
+{% endblock %}

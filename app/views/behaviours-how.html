@@ -11,7 +11,7 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 
 
-<form class="form" action="behaviours-when?method=behaviours" method="post">
+<form class="form" action="list?method=behaviours" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
@@ -24,12 +24,13 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 
       {% for items in data['criteria-behaviours'] %}
 
-      <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+      <h2 style="color:#1d70b8" class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
 
-
-
+      <h3 class="govuk-heading-m govuk-!-margin-top-3">
+        At application
+      </h3>
       {{ govukCheckboxes({
-        name: "methods-behaviours",
+        name: "methods-behaviours-app",
         classes: "govuk-checkboxes",
         fieldset: {
           legend: {
@@ -40,11 +41,6 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
         },
         items: [
         {
-          value: "Application form",
-          text: "Application form",
-          checked: checked(items, "Application form")
-        },
-        {
           value: "CV",
           text: "CV",
           checked: checked(items, "CV")
@@ -54,17 +50,33 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
           text: "Statement of suitability",
           checked: checked(items, "Statement of suitability")
         },
-
+        {
+          value: "Written behaviours statements",
+          text: "Written behaviours statements",
+          checked: checked(items, "Written behaviours statements")
+        },
         {
           value: "Civil Service Judgement Test",
           text: "Civil Service Judgement Test",
           checked: checked(items, "Civil Service Judgement Test")
+        }
+        ]
+      }) }}
+
+      <h3 class="govuk-heading-m govuk-!-margin-top-3">
+        At interview
+      </h3>
+      {{ govukCheckboxes({
+        name: "methods-behaviours-int",
+        classes: "govuk-checkboxes",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
         },
-        {
-          value: "Civil Service Management Judgement Test",
-          text: "Civil Service Management Judgement Test",
-          checked: checked(items, "Civil Service Management Judgement Test")
-        },
+        items: [
         {
           value: "Interview questions",
           text: "Interview questions",
@@ -74,15 +86,11 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
           value: "Presentation",
           text: "Presentation",
           checked: checked(items, "Presentation")
-        },
-        {
-          value: "Written behaviours statements",
-          text: "Written behaviours statements",
-          checked: checked(items, "Written behaviours statements")
         }
         ]
       }) }}
+      <hr>
       {% endfor %}
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
     </form>
     {% endblock %}

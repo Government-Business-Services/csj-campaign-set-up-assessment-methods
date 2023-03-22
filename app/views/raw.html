@@ -9,60 +9,105 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
 {% endblock %}
 
 {% block content %}
-{% set criteria =[]%}
-{% if data['method'] == "ability" %}
-{% set crit = data['ability1'] | truncate(80) %}
-{% set criteria = (criteria.push(crit), criteria) %}
-{% set methods = data['ablMethods'] %}
-{% endif %}
-
-{% if data['method'] == "behaviours" %}
-{% set crit = data['criteria-behaviours'] %}
-{% set criteria = (criteria.push(crit), criteria) %}
-{% set methods = data['behMethods'] | first %}
-{% endif %}
 
 
 
-  <div class="govuk-summary-card">
-    <div class="govuk-summary-card__title-wrapper">
-      <h2 class="govuk-summary-card__title" style="font-size:30px;color:#1d70b8;">{{ data['method'] | capitalize}}</h2>
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-l">
+      Assessment items
+    </h1>
+
+
+
+    {% if data['criteria-experience'].length >0 %}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" style="font-size:24px;color:#1d70b8;">Experience</h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="width:60%">
+              <p class="govuk-body-m">{{ data['criteria-experience'] }}</p>
+            </dt>
+            <dd class="govuk-summary-list__value" style="width:30%">
+              <p class="govuk-body-m"><strong>At application</strong></p>
+              <ul class="govuk-list govuk-list--bullet">
+                {% if data['methods-experience-app'] != "" %}
+                {% for methoda in data['methods-experience-app'] %}
+                <li>{{ methoda }}</li>
+                {% endfor %}
+                {% endif %}
+              </ul>
+              <p class="govuk-body-m"><strong>At interview</strong></p>
+              <ul class="govuk-list govuk-list--bullet">
+                {% if data['methods-experience-int'] != "" %}
+                {% for methodb in data['methods-experience-int'] %}
+                <li> {{ methodb }} </li>
+              </ul>
+              {% endfor %}
+              {% endif %}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#" style="padding-right:10px">
+                Change<span class="govuk-visually-hidden"> age</span>
+              </a>
+              <a class="govuk-link" href="#" style="padding-left:10px">
+                Delete<span class="govuk-visually-hidden"> age</span>
+              </a>
+            </dd>
+          </div>
+
+
+        </dl>
+      </div>
     </div>
-    <div class="govuk-summary-card__content">
-      <dl class="govuk-summary-list">
+    {% endif %}
+
+    {% if data['criteria-ability'] !="" %}
+    <div class="govuk-summary-card">
+      <div class="govuk-summary-card__title-wrapper">
+        <h2 class="govuk-summary-card__title" style="font-size:24px;color:#1d70b8;">Abilities</h2>
+      </div>
+      <div class="govuk-summary-card__content">
+        <dl class="govuk-summary-list">
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key" style="width:60%">
+              <p class="govuk-body-m">{{ data['criteria-ability'] }}</p>
+            </dt>
+            <dd class="govuk-summary-list__value" style="width:30%">
+              <p class="govuk-body-m"><strong>At application</strong></p>
+              <ul class="govuk-list govuk-list--bullet">
+                {% if data['ablMethods'] != "" %}
+                {% for methoda in data['ablMethods'] %}
+                <li>{{ methoda }}</li>
+                {% endfor %}
+                {% endif %}
+              </ul>
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="#" style="padding-right:10px">
+                Change<span class="govuk-visually-hidden"> age</span>
+              </a>
+              <a class="govuk-link" href="#" style="padding-left:10px">
+                Delete<span class="govuk-visually-hidden"> age</span>
+              </a>
+            </dd>
+          </div>
 
 
-
-  {% for items in criteria %}
-        <div class="govuk-summary-list__row">
-          <dt class="govuk-summary-list__key" style="width:50%">
-            <p class="govuk-body-m"><strong>{{ items }}</strong></p>
-
-          </dt>
-
-
-          <dd class="govuk-summary-list__value" style="width:40%">
-            <ul class="govuk-list govuk-list--bullet">
-                      {% for method in data['behMethods'] | last | slice(1) %}
-                      <li><p class="govuk-body-m">{{ method }}</p></li>
-    {% endfor %}
-            </ul>
-
-          </dd>
-          <dd class="govuk-summary-list__actions">
-            <a class="govuk-link" href="#" style="padding-right:10px">
-              Change<span class="govuk-visually-hidden"> age</span>
-            </a>
-            <a class="govuk-link" href="#" style="padding-left:10px">
-              Delete<span class="govuk-visually-hidden"> age</span>
-            </a>
-          </dd>
-        </div>
-          {% endfor %}
-
-
-      </dl>
+        </dl>
+      </div>
     </div>
+    {% endif %}
+
+
+
+
+
   </div>
+</div>
+
 
 {% endblock %}

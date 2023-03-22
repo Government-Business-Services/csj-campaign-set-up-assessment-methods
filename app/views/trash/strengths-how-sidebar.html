@@ -90,10 +90,10 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           {%- endfor %}
         </div>
       </div>
-      <div id="reveal" style="display:none;float:right;max-width:100%;min-width:30%;border:0.5px lightgrey solid;padding:10px" class="govuk-grid-column-one-third">
+      <div style="float:right;max-width:100%;min-width:30%;border:0.5px lightgrey solid;padding:10px" class="govuk-grid-column-one-third">
 
         <div>
-          <h4 class="govuk-heading-m">
+          <h4 class="govuk-heading-m govuk-!-margin-top-9">
             My list
           </h4>
           <p class="govuk-body-s" style="color:#1d70b8"><strong>Technical skills</strong><br>
@@ -112,8 +112,5 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
         </div>
     </div>
     <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
-<div style="float:right">
-    <a href="#"  onclick="showDiv('reveal')">ON</a><br>
-    <a href="#"  onclick="hideDiv('reveal')">OFF</a></div>
   </form>
   {% endblock %}
