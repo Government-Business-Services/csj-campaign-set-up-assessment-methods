@@ -5,24 +5,30 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
-  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
 {% endblock %}
 
 {% block content %}
-  <form class="form" action="behaviours-when?method=behaviours" method="post">
+
+
+<form class="form" action="behaviours-when?method=behaviours" method="post">
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-l">
-        Which behaviours would you like to  to assess?
+      <h1 class="govuk-heading-xl">
+        How do you want to assess these behaviours?
       </h1>
-        {% for items in data['criteria-behaviours'] %}
-
-        <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+      <p class="govuk-body-m">Select how you would like to assess each behaviour.</p>
 
 
-        {{ govukCheckboxes({
-        id: "methods-behaviours",
+
+      {% for items in data['criteria-behaviours'] %}
+
+      <h2 class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+
+
+
+      {{ govukCheckboxes({
         name: "methods-behaviours",
         classes: "govuk-checkboxes",
         fieldset: {
@@ -33,58 +39,50 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
           }
         },
         items: [
-          {
-            id: "methods-behaviours1",
-            value: "Application form",
-            text: "Application form",
-            checked: checked("methods-behaviours{{loop.index}}", "Application form")
-          },
-          {
-            id: "methods-behaviours2",
-            value: "CV",
-            text: "CV",
-            checked: checked("methods-behaviours{{loop.index}}", "CV")
-          },
-          {
-            id: "methods-behaviours3",
-            value: "Statement of suitability",
-            text: "Statement of suitability",
-            checked: checked("methods-behaviours{{loop.index}}", "Statement of suitability")
-          },
+        {
+          value: "Application form",
+          text: "Application form",
+          checked: checked(items, "Application form")
+        },
+        {
+          value: "CV",
+          text: "CV",
+          checked: checked(items, "CV")
+        },
+        {
+          value: "Statement of suitability",
+          text: "Statement of suitability",
+          checked: checked(items, "Statement of suitability")
+        },
 
-          {
-            id: "methods-behaviours4",
-            value: "Civil Service Judgement Test",
-            text: "Civil Service Judgement Test",
-            checked: checked("methods-behaviours{{loop.index}}", "Civil Service Judgement Test")
-          },
-          {
-            id: "methods-behaviours5",
-            value: "Civil Service Management Judgement Test",
-            text: "Civil Service Management Judgement Test",
-            checked: checked("methods-behaviours{{loop.index}}", "Civil Service Management Judgement Test")
-          },
-          {
-            id: "methods-behaviours6",
-            value: "Interview questions",
-            text: "Interview questions",
-            checked: checked("methods-behaviours{{loop.index}}", "Interview questions")
-          },
-            {
-              id: "methods-behaviours7",
-              value: "Presentation",
-              text: "Presentation",
-              checked: checked("methods-behaviours{{loop.index}}", "Presentation")
-            },
-          {
-            id: "methods-behaviours8",
-            value: "Written behaviours statements",
-            text: "Written behaviours statements",
-            checked: checked("methods-behaviours{{loop.index}}", "Written behaviours statements")
-          }
+        {
+          value: "Civil Service Judgement Test",
+          text: "Civil Service Judgement Test",
+          checked: checked(items, "Civil Service Judgement Test")
+        },
+        {
+          value: "Civil Service Management Judgement Test",
+          text: "Civil Service Management Judgement Test",
+          checked: checked(items, "Civil Service Management Judgement Test")
+        },
+        {
+          value: "Interview questions",
+          text: "Interview questions",
+          checked: checked(items, "Interview questions")
+        },
+        {
+          value: "Presentation",
+          text: "Presentation",
+          checked: checked(items, "Presentation")
+        },
+        {
+          value: "Written behaviours statements",
+          text: "Written behaviours statements",
+          checked: checked(items, "Written behaviours statements")
+        }
         ]
-        }) }}
-        {% endfor %}
-        <button class="govuk-button" data-module="govuk-button">Continue</button>
-      </form>
-{% endblock %}
+      }) }}
+      {% endfor %}
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+    </form>
+    {% endblock %}

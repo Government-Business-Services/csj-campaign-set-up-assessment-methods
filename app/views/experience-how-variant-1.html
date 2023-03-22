@@ -1,0 +1,93 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<form class="form" action="list?method=experience" method="post">
+  {% set experienceMethods = ['Application form','CV','Interview','Statement of suitability'] %}
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        How do you want to assess this experience?
+      </h1>
+
+      {{ govukTextarea({
+        label: {
+          text: ""
+        },
+        id: "criteria-experience",
+        rows: "3",
+        name: "criteria-experience",
+        value: data['criteria-experience']
+      }) }}
+
+      <h2 class="govuk-heading-m govuk-!-margin-top-6">
+        At application
+      </h2>
+
+      {% from "govuk/components/radios/macro.njk" import govukRadios %}
+      {{ govukRadios({
+        name: "at-application-experience-V1",
+        classes: "govuk-radios",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: "CV",
+          text: "CV",
+          checked: checked('at-application-experience-V1','CV')
+        },
+        {
+          value: "Personal statement",
+          text: "Personal statement",
+          checked: checked('at-application-experience-V1','Personal statement')
+
+        },
+        {
+          value: "Online test",
+          text: "Online test",
+          checked: checked('at-application-experience-V1','Online test')
+
+        },
+        {
+          value: "Written behaviour statements",
+          text: "Written behaviour statements",
+          checked: checked('at-application-experience-V1','Written behaviour statements')
+        }
+        ]
+      }) }}
+<hr>
+
+
+
+            {{ govukCheckboxes({
+              id: "at-interview-too",
+              name: "at-interview-too",
+              classes: "govuk-checkboxes--small",
+              items: [
+              {
+                value: "I also want to assess this experience at interview",
+                text: "I also want to assess this experience at interview",
+                checked: checked("at-interview-too", "I also want to assess this experience at interview")
+              }
+              ]
+            }) }}
+
+    </div>
+  </div>
+  <button class="govuk-button govuk-!-margin-top-3" data-module="govuk-button">Continue</button>
+
+</form>
+{% endblock %}

@@ -16,9 +16,17 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
 <form class="form" action="strengths-how?method=strengths" method="post">
 
   <div class="govuk-grid-row">
-    <h1 class="govuk-heading-l">
-      Which strengths would you like to assess?
+        <div class="govuk-grid-column-full">
+    <h1 class="govuk-heading-xl">
+      Which strengths do you want to assess?
     </h1>
+    <p class="govuk-body"><strong>You can select up to 4 strengths.</strong></p>
+    <p class="govuk-body">You should use strengths to assess what candidates do regularly, do well and are motivated by.</p>
+    <p class="govuk-body">We recommend strengths are assessed with psychometric tests.</p>
+
+    </div>
+    </div>
+      <div class="govuk-grid-row">
     <div class="govuk-grid-column-one-half">
 
       <div class="govuk-checkboxes govuk-checkboxes--small {{ loop.index }}" data-module="govuk-checkboxes" name="str">
@@ -42,7 +50,7 @@ Question page template – {{ serviceName }} – GOV.UK Prototype Kit
             {%- endfor %}
           </div>
         </div>
-
+</div>
         <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
       </form>
       {% endblock %}

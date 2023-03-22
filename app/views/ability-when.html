@@ -21,11 +21,12 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
     </h1>
 
     <div style="border:1px solid #1d70b8; border-radius:8px;padding:10px">
-    <h2 class="govuk-heading-m" style="color:#1d70b8" >{{ data['criteria-ability'] }}</h2>
+    <h2 class="govuk-heading-m" style="color:#1d70b8" >{{ data['criteria-ability'] | truncate(120) }}</h2>
     <ul class="govuk-list govuk-list--bullet-">
 
-      <li><p class="govuk-body-m"><strong>{{ data['ablMethods'] }}</strong></p></li>
-
+{% for a in data['ablMethods'] %}
+      <li><p class="govuk-body-m"><strong>{{ a }}</strong></p></li>
+{%endfor%}
     </ul>
     </div>
 

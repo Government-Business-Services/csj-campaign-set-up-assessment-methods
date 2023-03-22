@@ -1,0 +1,116 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+
+<form class="form" action="list?method=behaviours" method="post">
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+
+      <h1 class="govuk-heading-xl">
+        How do you want to assess these behaviours?
+      </h1>
+      <p class="govuk-body-m">Select how you would like to assess each behaviour.</p>
+
+
+
+      {% for items in data['criteria-behaviours'] %}
+
+      <h2 style="color:#1d70b8" class="govuk-heading-l govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+
+      <div class="govuk-grid-row" style="border-bottom:1px solid black">
+          <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m govuk-!-margin-top-3">
+            At application
+          </h3>
+          {{ govukCheckboxes({
+            name: "methods-behaviours",
+            classes: "govuk-checkboxes",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+            {
+              value: "Application form",
+              text: "Application form",
+              checked: checked(items, "Application form")
+            },
+            {
+              value: "CV",
+              text: "CV",
+              checked: checked(items, "CV")
+            },
+            {
+              value: "Statement of suitability",
+              text: "Statement of suitability",
+              checked: checked(items, "Statement of suitability")
+            },
+
+            {
+              value: "Civil Service Judgement Test",
+              text: "Civil Service Judgement Test",
+              checked: checked(items, "Civil Service Judgement Test")
+            },
+            {
+              value: "Written behaviours statements",
+              text: "Written behaviours statements",
+              checked: checked(items, "Written behaviours statements")
+            }
+            ]
+          }) }}
+          </div>
+
+          <div class="govuk-grid-column-one-half">
+          <h3 class="govuk-heading-m govuk-!-margin-top-3">
+            At interview
+          </h3>
+          {{ govukCheckboxes({
+            name: "methods-behaviours",
+            classes: "govuk-checkboxes",
+            fieldset: {
+              legend: {
+                text: "",
+                isPageHeading: false,
+                classes: "govuk-fieldset__legend--l"
+              }
+            },
+            items: [
+            {
+              value: "Interview questions",
+              text: "Interview questions",
+              checked: checked(items, "Interview questions")
+            },
+            {
+              value: "Presentation",
+              text: "Presentation",
+              checked: checked(items, "Presentation")
+            },
+            {
+              value: "Presentation of work samples and case studies",
+              text: "Presentation of work samples and case studies",
+              checked: checked(items, "Presentation of work samples and case studies")
+            }
+            ]
+          }) }}
+
+          </div>
+          </div>
+          {% endfor %}
+
+
+
+      <button class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Continue</button>
+    </form>
+    {% endblock %}

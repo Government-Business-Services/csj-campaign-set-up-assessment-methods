@@ -11,19 +11,18 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
 {% block content %}
 <form class="form" action="#" method="post">
 
-{% set abilityMethods = ['Civil Service Verbal Test','Civil Service Numerical Test','Customer Service Test','Casework Test'] %}
-{% set special = ['Kung fu','levitating','singing','dancing'] %}
-{% set things = [] %}
 
 
-{% for items in data['behave1'] %}
-{% for things in data['behMethods'] %}
-{{[loop.index1]}}
-  {{ items }} {{things}}
-{% endfor %}
-{% endfor %}
 
 
+    {% for a, methods in data['str'] %}
+    {% for a in  data['strMethods'] %}
+    {{a}}
+    {{methods}}
+{%- endfor %}
+
+
+{%- endfor %}
 
 
 <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>

@@ -8,15 +8,6 @@ window.GOVUKPrototypeKit.documentReady(() => {
 
 
 
-  const amendPizza = (pizzas, pizza) => {
-    const index = pizzas.findIndex(p => p.id === pizza.id);
-    pizzas.splice(index, 1);
-    pizzas.push(pizza);
-    return pizzas;
-  }
-
-
-
   function showDiv(div){
     document.getElementById(div).style.display = 'block';
   }

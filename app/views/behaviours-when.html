@@ -26,6 +26,46 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
   </ul>
   </div>
 
+  <div class="govuk-summary-card">
+    <div class="govuk-summary-card__title-wrapper">
+      <h2 class="govuk-summary-card__title" style="font-size:30px;color:#1d70b8;">{{ data['method'] | capitalize}}</h2>
+    </div>
+    <div class="govuk-summary-card__content">
+      <dl class="govuk-summary-list">
+
+
+
+  {% for items in criteria %}
+        <div class="govuk-summary-list__row">
+          <dt class="govuk-summary-list__key" style="width:50%">
+            <p class="govuk-body-m"><strong>{{ items }}</strong></p>
+
+          </dt>
+
+
+          <dd class="govuk-summary-list__value" style="width:40%">
+            <ul class="govuk-list govuk-list--bullet">
+                      {% for method in data['behMethods'] | last | slice(1) %}
+                      <li><p class="govuk-body-m">{{ method }}</p></li>
+    {% endfor %}
+            </ul>
+
+          </dd>
+          <dd class="govuk-summary-list__actions">
+            <a class="govuk-link" href="#" style="padding-right:10px">
+              Change<span class="govuk-visually-hidden"> age</span>
+            </a>
+            <a class="govuk-link" href="#" style="padding-left:10px">
+              Delete<span class="govuk-visually-hidden"> age</span>
+            </a>
+          </dd>
+        </div>
+          {% endfor %}
+
+
+      </dl>
+    </div>
+  </div>
 
 
       <div style="padding-top:20px; padding-bottom:20px;padding-left:10px;" class="govuk-radios govuk-radios--inline" data-module="govuk-radios">

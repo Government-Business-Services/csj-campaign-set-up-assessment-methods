@@ -13,9 +13,9 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
 <form class="form" action="experience-when?method=experience" method="post">
   {% set experienceMethods = ['Application form','CV','Interview','Statement of suitability'] %}
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
-        How will you assess this {{ data['method'] }}?
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        How do you want to assess this experience?
       </h1>
 
       {{ govukTextarea({
@@ -25,11 +25,19 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
         id: "criteria-experience",
         rows: "3",
         name: "criteria-experience",
-        value: data['criteria-experience'],
-        hint: {
-          text: "Guidance ut enim ad minim veniam, quis nostrud exercitation."
-        }
+        value: data['criteria-experience']
       }) }}
+
+
+</div>
+      <div class="govuk-grid-row">
+    <div class="govuk-grid-column-one-half">
+
+
+
+
+
+
 
       <div class="govuk-checkboxes" data-module="govuk-checkboxes">
         <div class="govuk-checkboxes__item">

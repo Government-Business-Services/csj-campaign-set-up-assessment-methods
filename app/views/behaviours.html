@@ -11,12 +11,22 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 <form class="form" action="behaviours-how?method=behaviours" method="post">
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
+    <div class="govuk-grid-column-three-quarters">
 
-      <h1 class="govuk-heading-l">
+      <h1 class="govuk-heading-xl">
         Which behaviours would you like to assess?
       </h1>
+
+      <p class="govuk-body-m">You can select up to 4 behaviours.</p>
+      <p class="govuk-body-m">You should think about what behaviours are the most important and are needed to do this role.</p>
+      <p class="govuk-body-m">Behaviours assess the actions and activities that people do which result in effective performance in a job.</p>
+
+
+
       {{ govukCheckboxes({
+        idPrefix: "criteria-behaviours",
+        id: "criteria-behaviours",
+        checked: data['values'],
         id: "criteria-behaviours",
         name: "criteria-behaviours",
         classes: "govuk-checkboxes",

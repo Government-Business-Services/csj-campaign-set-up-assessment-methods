@@ -14,12 +14,14 @@ Experience – {{ serviceName }} – GOV.UK Prototype Kit
 <form class="form" action="experience-how?method=experience" method="post">
 
   <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">
-        What experience would you like to assess?
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        What experience do you want to assess candidates on?
       </h1>
 
-      <div class="govuk-!-margin-top-9 govuk-!-margin-bottom-2" id="exp1">
+        <p class="govuk-body-m">You should use experience to assess a candidate's knowlege of an activity or subject gained through involvement in or exposure to it.</p>
+
+      <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-2" id="exp1">
       {{ govukTextarea({
         label: {
           text: ""
@@ -27,17 +29,14 @@ Experience – {{ serviceName }} – GOV.UK Prototype Kit
         id: "criteria-experience",
         rows: "3",
         name: "criteria-experience",
-        value: data['criteria-experience'],
-        hint: {
-    text: "Guidance Nihil hic munitissimus habendi senatus locus, nihil horum? Inmensae subtilitatis, obscuris."
-  }
+        value: data['criteria-experience']
       }) }}
 
       <!-- <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('exp2')">Add another experience</a> -->
 </div>
 
 <input type="hidden" name="exp1" value="true">
-      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+      <button class="govuk-button govuk-!-margin-top-4" data-module="govuk-button">Continue</button>
 
 </form>
 

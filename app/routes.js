@@ -16,23 +16,23 @@ router.post('/ass-handle', function (req, res){
   var exp = req.session.data['exp1']
 
   switch (choice) {
-    case 'ability':
-    res.redirect('ability')
+    case 'Abilities':
+    res.redirect('abilities')
     break
 
-    case 'behaviours':
+    case 'Behaviours':
     res.redirect('behaviours')
     break
 
-    case 'experience':
+    case 'Experience':
     res.redirect("experience")
     break
 
-    case 'skills':
-    res.redirect('technical')
+    case 'Technical skills':
+    res.redirect('technical-skills')
     break
 
-    case 'strengths':
+    case 'Strengths':
     res.redirect('strengths')
     break
   }
