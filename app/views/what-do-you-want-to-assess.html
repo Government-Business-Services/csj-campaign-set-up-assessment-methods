@@ -17,7 +17,7 @@ What do you want to assess? – {{ serviceName }} – GOV.UK Prototype Kit
         What do you want to assess candidates on?
       </h1>
       <p class="govuk-body-m">You should focus on what you need candidates to do in the job role.</p>
-      <p class="govuk-body-m">You can select up to 3.</p>
+      <!-- <p class="govuk-body-m">You can select up to 3.</p> -->
 
 
       {% from "govuk/components/radios/macro.njk" import govukRadios %}
@@ -55,6 +55,6 @@ What do you want to assess? – {{ serviceName }} – GOV.UK Prototype Kit
         }
         ]
       }) }}
-      <button class="govuk-button" data-module="govuk-button">Continue</button>
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
     </form>
     {% endblock %}

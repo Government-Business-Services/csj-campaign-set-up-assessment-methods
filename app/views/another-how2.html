@@ -24,7 +24,10 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
       {% if data['criteria-experience-1'].length > 0 %}
       {% set array = (array.push(data['criteria-experience-1']), array) %}
 
-      <div id="fir" style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+      <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
+
+
+
         {{ govukTextarea({
           label: {
             text: ""
@@ -35,7 +38,9 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           value: data['criteria-experience-1']
         }) }}
 
-        <div style="border:1px solid lightgrey;padding:20px;border-radius:5px">
+
+
+        <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
         <h2 class="govuk-heading-m govuk-!-margin-top-0">
           At application
         </h2>
@@ -116,7 +121,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
 
       {% if data['criteria-experience-2'].length > 0 %}
       {% set array = (array.push(data['criteria-experience-2']), array) %}
-      <div id="sec" class="govuk-!-margin-top-6" style="border:1px solid lightgrey;padding:20px;border-radius:5px">
+      <div id="sec" class="govuk-!-margin-top-6" style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
 
         {{ govukTextarea({
           label: {
@@ -128,7 +133,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           value: data['criteria-experience-2']
         }) }}
 
-        <div style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+        <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
         <h2 class="govuk-heading-m govuk-!-margin-top-0">
           At application
         </h2>
@@ -211,7 +216,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
       {% if data['criteria-experience-3'].length > 0 %}
       {% set array = (array.push(data['criteria-experience-3']), array) %}
 
-      <div id="thd" class="govuk-!-margin-top-6" style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+      <div id="thd" class="govuk-!-margin-top-6" style="border:0.15px solid grey;border-radius:5px;padding:10px">
 
         {{ govukTextarea({
           label: {
@@ -223,7 +228,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           value: data['criteria-experience-3']
         }) }}
 
-        <div style="border:1px solid lightgrey;padding:20px;border-radius:5px">
+        <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
         <h2 class="govuk-heading-m govuk-!-margin-top-0">
           At application
         </h2>

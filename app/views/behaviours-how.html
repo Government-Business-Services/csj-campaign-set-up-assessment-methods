@@ -20,13 +20,14 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
       </h1>
       <p class="govuk-body-m">Select how you would like to assess each behaviour.</p>
 
-
+<div id="fir" style="border:1px solid lightgrey;padding-left:20px;padding-right:20px;padding-bottom:20px;border-radius:5px;">
 
       {% for items in data['criteria-behaviours'] %}
 
-      <h2 style="color:#1d70b8" class="govuk-heading-m govuk-!-margin-bottom-3 govuk-!-margin-top-6">{{ items }}</h2>
+      <h2 style="color:#1d70b8" class="govuk-heading-m govuk-!-margin-top-6">{{ items }}</h2>
+      <div style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
 
-      <h3 class="govuk-heading-m govuk-!-margin-top-3">
+      <h3 class="govuk-heading-m">
         At application
       </h3>
       {{ govukCheckboxes({
@@ -63,7 +64,7 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
         ]
       }) }}
 
-      <h3 class="govuk-heading-m govuk-!-margin-top-3">
+      <h3 class="govuk-heading-m">
         At interview
       </h3>
       {{ govukCheckboxes({
@@ -89,7 +90,7 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
         }
         ]
       }) }}
-      <hr>
+      </div>
       {% endfor %}
       <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
     </form>

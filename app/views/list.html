@@ -9,7 +9,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
 {% endblock %}
 
 {% block content %}
-
+{% from "govuk/components/summary-list/macro.njk" import govukSummaryList %}
 
 
 <div class="govuk-grid-row">
@@ -19,6 +19,79 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
     </h1>
 
 
+
+    {{ govukSummaryList({
+      rows: [
+        {
+          key: {
+            text: "Name"
+          },
+          value: {
+            text: "Sarah Philips"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "name"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"
+          },
+          value: {
+            text: "5 January 1978"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "date of birth"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Address"
+          },
+          value: {
+            html: "72 Guild Street<br>London<br>SE23 6FH"
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "address"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Contact details"
+          },
+          value: {
+            html: '<p class="govuk-body">07700 900457</p><p class="govuk-body">sarah.phillips@example.com</p>'
+          },
+          actions: {
+            items: [
+              {
+                href: "#",
+                text: "Change",
+                visuallyHiddenText: "contact details"
+              }
+            ]
+          }
+        }
+      ]
+    }) }}
 
     {% if data['criteria-experience'].length >0 %}
     <div class="govuk-summary-card">

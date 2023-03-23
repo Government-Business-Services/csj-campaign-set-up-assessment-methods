@@ -17,7 +17,7 @@ router.post('/ass-handle', function (req, res){
 
   switch (choice) {
     case 'Abilities':
-    res.redirect('abilities')
+    res.redirect('ability')
     break
 
     case 'Behaviours':

@@ -12,6 +12,27 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
+{% set abilityArray = ['Abilities'] %}
+
+{% if data['criteria-ability-1'].length > 0 %}
+{% set abilityArray = (abilityArray.push(data['criteria-ability-1']), abilityArray) %}
+{% endif %}
+{% if data['methods-ability-app-1'].length > 0 %}
+{% set abilityArray = (abilityArray.push(data['methods-ability-app-1']), abilityArray) %}
+{% endif %}
+{% if data['methods-ability-app-2'].length > 0 %}
+{% set abilityArray = (abilityArray.push(data['methods-ability-app-2']), abilityArray) %}
+{% endif %}
+{% if data['criteria-ability-2'].length > 0 %}
+{% set abilityArray = (abilityArray.push(data['criteria-ability-2']), abilityArray) %}
+{% endif %}
+{% if data['criteria-ability-3'].length > 0 %}
+{% set abilityArray = (abilityArray.push(data['criteria-ability-3']), abilityArray) %}
+{% endif %}
+
+
+
+{{ abilityArray }}
 
 <form class="form" action="#" method="post">
 
@@ -41,19 +62,36 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
 
           <tbody class="govuk-table__body">
 
+
+            {% if data['criteria-ability-1'].length > 0 %}
             <tr class="govuk-table__row">
 
-              <td style="color:#1d70b8" class="govuk-table__cell"><strong>Behaviours</strong></td>
+              <td style="color:#1d70b8" class="govuk-table__cell"><strong>Abilities</strong></td>
 
-              <td class="govuk-table__cell"><strong>{{ items }}</strong></td>
+              <td class="govuk-table__cell"><strong>{{ data['criteria-ability-1']}}</strong></td>
 
 
-              <td class="govuk-table__cell">{{ data['methods-behaviours-app'] | dump }}</td>
+              <td class="govuk-table__cell">{{ data['methods-ability-app-1']}}</td>
+
+              <td class="govuk-table__cell">Change | Delete</td>
+                {{ data['array']}}
+            </tr>
+            {% endif %}
+
+            {% if data['criteria-skills-1'].length > 0 %}
+            <tr class="govuk-table__row">
+
+              <td style="color:#1d70b8" class="govuk-table__cell"><strong>a</strong></td>
+
+              <td class="govuk-table__cell"><strong></strong></td>
+
+
+              <td class="govuk-table__cell"></td>
 
               <td class="govuk-table__cell">Change | Delete</td>
 
             </tr>
-
+            {% endif %}
           </tbody>
         </table>
 
@@ -81,12 +119,12 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
 
             <tr class="govuk-table__row">
 
-              <td style="color:#1d70b8" class="govuk-table__cell"><strong>Behaviours</strong></td>
+              <td style="color:#1d70b8" class="govuk-table__cell"><strong></strong></td>
 
-              <td class="govuk-table__cell"><strong>{{ items }}</strong></td>
+              <td class="govuk-table__cell"><strong></strong></td>
 
 
-              <td class="govuk-table__cell">{{ data['methods-behaviours-app'] | dump }}</td>
+              <td class="govuk-table__cell"></td>
 
               <td class="govuk-table__cell">Change | Delete</td>
 

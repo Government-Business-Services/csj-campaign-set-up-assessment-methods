@@ -14,7 +14,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
 
 
 <form class="form" action="list?method=experience" method="post">
-  {% set experienceMethods = ['Application form','CV','Interview','Statement of suitability'] %}
+% set abilityMethods = ['Civil Service Verbal Test','Civil Service Numerical Test','Customer Service Test','Casework Test', 'Some other test'] %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-xl">
@@ -24,7 +24,10 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
       {% if data['criteria-experience-1'].length > 0 %}
       {% set array = (array.push(data['criteria-experience-1']), array) %}
 
-      <div id="fir" style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+      <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
+
+
+
         {{ govukTextarea({
           label: {
             text: ""
@@ -35,14 +38,16 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           value: data['criteria-experience-1']
         }) }}
 
-        <div style="border:1px solid lightgrey;padding:20px;border-radius:5px">
+
+
+        <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
         <h2 class="govuk-heading-m govuk-!-margin-top-0">
           At application
         </h2>
         {{ govukCheckboxes({
-          idPrefix: "methods-experience-app-1",
-          id: "methods-experience-app-1",
-          name: "methods-experience-app-1",
+          idPrefix: "methods-abilities-app-1",
+          id: "methods-abilities-app-1",
+          name: "methods-abilities-app-1",
           classes: "govuk-checkboxes",
           fieldset: {
             legend: {
@@ -53,70 +58,40 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           },
           items: [
           {
-            value: "Application form",
-            text: "Application form",
-            checked: checked("methods-experience-app-1", "Application form")
+            value: "Civil Service Verbal Test",
+            text: "Civil Service Verbal Test",
+            checked: checked("methods-abilities-app-1", "Civil Service Verbal Test")
           },
           {
-            value: "CV",
-            text: "CV",
-            checked: checked("methods-experience-app-1", "CV")
+            value: "Civil Service Numerical Test",
+            text: "Civil Service Numerical Test",
+            checked: checked("methods-abilities-app-1", "Civil Service Numerical Test")
           },
           {
-            value: "Statement of suitability",
-            text: "Statement of suitability",
-            checked: checked("methods-experience-app-1", "Statement of suitability")
+            value: "Customer Service Test",
+            text: "Customer Service Test",
+            checked: checked("methods-abilities-app-1", "Customer Service Test")
+          },
+          {
+            value: "Casework Test",
+            text: "Casework Test",
+            checked: checked("methods-abilities-app-1", "Casework Test")
+          },
+          {
+            value: "Some other test",
+            text: "Some other test",
+            checked: checked("methods-abilities-app-1", "Some other test")
           }
           ]
         }) }}
 
-
-
-
-        <h2 class="govuk-heading-m govuk-!-margin-top-3">
-          At interview
-        </h2>
-        {{ govukCheckboxes({
-          idPrefix: "methods-experience-int-1",
-          id: "methods-experience-int-1",
-          name: "methods-experience-int-1",
-          classes: "govuk-checkboxes",
-          fieldset: {
-            legend: {
-              text: "",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--l"
-            }
-          },
-          items: [
-          {
-            value: "Interview questions",
-            text: "Interview questions",
-            checked: checked("methods-experience-int-1", "Interview questions")
-          },
-          {
-            value: "Work samples or portfolio",
-            text: "Work samples or portfolio",
-            checked: checked("methods-experience-int-1", "Work samples or portfolio")
-          },
-          {
-            value: "Presentation",
-            text: "Presentation",
-            checked: checked("methods-experience-int-1", "Presentation")
-          }
-          ]
-        }) }}
-
-
-
-      </div>
 
       </div>
       {% endif %}
 
       {% if data['criteria-experience-2'].length > 0 %}
       {% set array = (array.push(data['criteria-experience-2']), array) %}
-      <div id="sec" class="govuk-!-margin-top-6" style="border:1px solid lightgrey;padding:20px;border-radius:5px">
+      <div id="sec" class="govuk-!-margin-top-6" style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
 
         {{ govukTextarea({
           label: {
@@ -128,7 +103,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           value: data['criteria-experience-2']
         }) }}
 
-        <div style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+        <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
         <h2 class="govuk-heading-m govuk-!-margin-top-0">
           At application
         </h2>
@@ -211,7 +186,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
       {% if data['criteria-experience-3'].length > 0 %}
       {% set array = (array.push(data['criteria-experience-3']), array) %}
 
-      <div id="thd" class="govuk-!-margin-top-6" style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+      <div id="thd" class="govuk-!-margin-top-6" style="border:0.15px solid grey;border-radius:5px;padding:10px">
 
         {{ govukTextarea({
           label: {
@@ -223,7 +198,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           value: data['criteria-experience-3']
         }) }}
 
-        <div style="border:1px solid lightgrey;padding:20px;border-radius:5px">
+        <div style="border:0.25px solid lightgrey;border-radius:5px;padding:10px">
         <h2 class="govuk-heading-m govuk-!-margin-top-0">
           At application
         </h2>
