@@ -11,7 +11,7 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 
 
-<form class="form" action="list?method=behaviours" method="post">
+<form class="form" action="list-by-criteria?method=behaviours" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
@@ -26,6 +26,11 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 
       <h2 style="color:#1d70b8" class="govuk-heading-m govuk-!-margin-top-6">{{ items }}</h2>
       <div style="border:1px solid lightgrey;padding:20px;border-radius:5px;">
+
+
+
+
+
 
       <h3 class="govuk-heading-m">
         At application
@@ -64,6 +69,9 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
         ]
       }) }}
 
+
+
+
       <h3 class="govuk-heading-m">
         At interview
       </h3>
@@ -90,6 +98,9 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
         }
         ]
       }) }}
+
+
+
       </div>
       {% endfor %}
       <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>

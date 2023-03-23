@@ -31,7 +31,7 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
 </script>
 
 
-<form class="form" action="list?method=strengths" method="post">
+<form class="form" action="list-by-criteria?method=strengths" method="post">
   <!-- <p class="govuk-body-s"><a onclick="showDiv('summ')" href="#" style="color: skyblue;float:right;font-size:20px">◉</a></p> -->
   <div class="govuk-grid-row">
     <h1 class="govuk-heading-l">
@@ -73,9 +73,9 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
           </h3>
           {% for methods in strengthsMethodsApp %}
           <div class="govuk-checkboxes__item">
-            <input class="govuk-checkboxes__input" id="sel-methods-strengths" name="sel-methods-strengths" type="checkbox" value="{{ methods }}">
+            <input class="govuk-checkboxes__input" id="sel-methods-strengths-a" name="sel-methods-strengths-a" type="checkbox" value="{{ methods }}">
 
-            <label class="govuk-label govuk-checkboxes__label" for="sel-methods-strengths" value="{{ items }}"> {{ methods }}</label></div>
+            <label class="govuk-label govuk-checkboxes__label" for="sel-methods-strengths-a" value="{{ methods }}"> {{ methods }}</label></div>
             {%- endfor %}
 
             <h3 class="govuk-heading-m govuk-!-margin-top-3">
@@ -83,9 +83,9 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
             </h3>
             {% for methods in strengthsMethodsInt %}
             <div class="govuk-checkboxes__item">
-              <input class="govuk-checkboxes__input" id="sel-methods-strengths" name="sel-methods-strengths" type="checkbox" value="{{ methods }}">
+              <input class="govuk-checkboxes__input" id="sel-methods-strengths-i" name="sel-methods-strengths-i" type="checkbox" value="{{ methods }}">
 
-              <label class="govuk-label govuk-checkboxes__label" for="sel-methods-strengths" value="{{ items }}"> {{ methods }}</label></div>
+              <label class="govuk-label govuk-checkboxes__label" for="sel-methods-strengths-i" value="{{ items }}"> {{ methods }}</label></div>
               {%- endfor %}
           </div>
           {%- endfor %}

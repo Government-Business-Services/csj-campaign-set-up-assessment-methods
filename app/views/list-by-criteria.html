@@ -1,0 +1,255 @@
+{% extends "layouts/main.html" %}
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+{% block pageTitle %}
+Assessments – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+{% set tum = data['methods-behaviours-app'].length %}
+
+{% set num = data['criteria-behaviours'].length %}
+
+
+{% set met = data['methods-behaviours-int-1'].length %}
+
+{{ data['criteria-behaviours'] | dump }}
+
+
+<a style="float:right" href="list-by-stage">stage</a>
+<form class="form" action="#" method="post">
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-full">
+      <span class="govuk-caption-l govuk-!-margin-top-3">Vacancy <strong>Policy Advisor, SEO</strong></span>
+      <h1 class="govuk-heading-xl ">
+        You have 3 assessment items
+      </h1>
+
+      <div class="moj-scrollable-pane">
+        <table class="govuk-table">
+
+          <caption class="govuk-table__caption--m" style="text-align:left"><h2 style="color:#1d70b8" class="govuk-heading-l">Behaviours</h2></caption>
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row" style="background:#f3f2f1">
+
+              <th style="width:15%" scope="col" class="govuk-table__header">Criteria</th>
+
+              <th style="width:30%" scope="col" class="govuk-table__header">Method(s)</th>
+
+              <th style="width:30%" scope="col" class="govuk-table__header">Stage</th>
+
+              <th style="width:25%" scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+
+            <tr class="govuk-table__row">
+
+
+              <td  style="width:30%" class="govuk-table__cell"><strong>{{ data['criteria-behaviours'] }}</strong></td>
+
+              <td style="width:20%" class="govuk-table__cell"><p><br>{{ data['methods-behaviours-app'] }}<br>{{ data['methods-behaviours-int'] }}</p></td>
+
+
+
+                <td style="width:10%"class="govuk-table__cell"></td>
+
+                <td style="width:25%" class="govuk-table__cell">Change | Delete</td>
+
+              </tr>
+
+            </tbody>
+          </table>
+
+        </div>
+
+
+      <div class="moj-scrollable-pane">
+        <table class="govuk-table">
+
+          <caption class="govuk-table__caption--m" style="text-align:left"><h2 style="color:#1d70b8" class="govuk-heading-l">Experience</h2></caption>
+
+          <thead class="govuk-table__head">
+            <tr class="govuk-table__row" style="background:#f3f2f1">
+
+              <th style="width:15%" scope="col" class="govuk-table__header">Criteria</th>
+
+              <th style="width:30%" scope="col" class="govuk-table__header">Method(s)</th>
+
+              <th style="width:30%" scope="col" class="govuk-table__header">Stage</th>
+
+              <th style="width:25%" scope="col" class="govuk-table__header">Actions</th>
+            </tr>
+          </thead>
+
+          <tbody class="govuk-table__body">
+
+
+            <tr class="govuk-table__row">
+              {% for items in data['criteria-behaviours'] | slice(num) %}
+              {% for item in items | slice(num) %}
+
+              <td  style="width:30%" class="govuk-table__cell"><strong>{{ item }}</strong></td>
+
+              {% endfor %}
+              {% endfor %}
+              <td style="width:20%" class="govuk-table__cell"><strong>{{ thing }}</td>
+
+
+                <td style="width:10%"class="govuk-table__cell"></td>
+
+                <td style="width:25%" class="govuk-table__cell">Change | Delete</td>
+
+
+            </tbody>
+          </table>
+
+        </div>
+
+
+
+          <div class="moj-scrollable-pane">
+            <table class="govuk-table">
+
+              <caption class="govuk-table__caption--m" style="text-align:left"><h2 style="color:#1d70b8" class="govuk-heading-l">Strengths</h2></caption>
+
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row" style="background:#f3f2f1">
+
+                  <th style="width:15%" scope="col" class="govuk-table__header">Criteria</th>
+
+                  <th style="width:30%" scope="col" class="govuk-table__header">Method(s)</th>
+
+                  <th style="width:30%" scope="col" class="govuk-table__header">Stage</th>
+
+                  <th style="width:25%" scope="col" class="govuk-table__header">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+
+                  <td style="color:#1d70b8" class="govuk-table__cell"><strong></strong></td>
+
+                  <td class="govuk-table__cell"><strong></strong></td>
+
+
+                  <td class="govuk-table__cell"></td>
+
+                  <td class="govuk-table__cell">Change | Delete</td>
+
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="moj-scrollable-pane">
+            <table class="govuk-table">
+
+              <caption class="govuk-table__caption--m" style="text-align:left"><h2 style="color:#1d70b8" class="govuk-heading-l">Technical skills</h2></caption>
+
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row" style="background:#f3f2f1">
+
+                  <th style="width:15%" scope="col" class="govuk-table__header">Criteria</th>
+
+                  <th style="width:30%" scope="col" class="govuk-table__header">Method(s)</th>
+
+                  <th style="width:30%" scope="col" class="govuk-table__header">Stage</th>
+
+                  <th style="width:25%" scope="col" class="govuk-table__header">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody class="govuk-table__body">
+
+                <tr class="govuk-table__row">
+
+                  <td style="color:#1d70b8" class="govuk-table__cell"><strong></strong></td>
+
+                  <td class="govuk-table__cell"><strong></strong></td>
+
+
+                  <td class="govuk-table__cell"></td>
+
+                  <td class="govuk-table__cell">Change | Delete</td>
+
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <div class="moj-scrollable-pane">
+            <table class="govuk-table">
+
+              <caption class="govuk-table__caption--m govuk-!-margin-top-6" style="text-align:left"><h2 class="govuk-heading-l" style="color:#1d70b8">Abilities</h2></caption>
+
+              <thead class="govuk-table__head">
+                <tr class="govuk-table__row" style="background:#f3f2f1">
+
+
+
+                  <th style="width:30%" scope="col" class="govuk-table__header">Criteria</th>
+
+                  <th style="width:30%" scope="col" class="govuk-table__header">Method(s)</th>
+                  <th style="width:15%" scope="col" class="govuk-table__header">Stage</th>
+
+                  <th style="width:25%" scope="col" class="govuk-table__header">Actions</th>
+                </tr>
+              </thead>
+
+              <tbody class="govuk-table__body">
+
+
+
+
+                <tr class="govuk-table__row">
+
+                  <td  class="govuk-table__cell"><strong>{{ data['criteria-ability-1']}}</strong></td>
+
+                  <td class="govuk-table__cell"><strong>{{ data['methods-ability-app-1']}}</strong></td>
+
+
+                  <td class="govuk-table__cell">Application</td>
+
+                  <td class="govuk-table__cell"><a href="ability-how">Change</a> | <a href="#">Delete</a></td>
+
+                </tr>
+
+
+                <tr class="govuk-table__row" >
+
+                  <td  class="govuk-table__cell"><strong>{{ data['criteria-ability-2']}}</strong></td>
+
+                  <td class="govuk-table__cell"><strong>{{ data['methods-ability-app-2']}}</strong></td>
+
+
+                  <td class="govuk-table__cell">Application</td>
+
+                  <td class="govuk-table__cell"><a href="#">Change</a> | <a href="#">Delete</a></td>
+
+                </tr>
+
+              </tbody>
+            </table>
+
+          </div>
+
+          <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+
+        </form>
+
+        {% endblock %}

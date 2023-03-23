@@ -12,27 +12,23 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
 
 {% block content %}
 
-
-
-
-
-
-
 <form class="form" action="#" method="post">
-
+  <a style="float:right" href="list-by-criteria">criteria</a>
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-full">
+      <span class="govuk-caption-l govuk-!-margin-top-3">Vacancy <strong>Policy Advisor, SEO</strong></span>
       <h1 class="govuk-heading-xl">
-        Lorem ipsum
+        You have 3 assessment items
       </h1>
 
+
       <div class="moj-scrollable-pane">
         <table class="govuk-table">
 
-          <caption class="govuk-table__caption--m" style="text-align:left"><h2 class="govuk-heading-l">At application</h2></caption>
+          <caption class="govuk-table__caption--m" style="text-align:left"><h2 style="color:#1d70b8" class="govuk-heading-l">At application</h2></caption>
 
           <thead class="govuk-table__head">
-            <tr class="govuk-table__row">
+            <tr class="govuk-table__row" style="background:#f3f2f1">
 
               <th style="width:15%" scope="col" class="govuk-table__header">Type</th>
 
@@ -51,28 +47,28 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
 
             <tr class="govuk-table__row">
 
-              <td style="color:#1d70b8" class="govuk-table__cell"><strong></strong></td>
+              <td  class="govuk-table__cell"><strong>  </strong></td>
 
               <td class="govuk-table__cell"><strong></strong></td>
 
 
               <td class="govuk-table__cell"></td>
 
-              <td class="govuk-table__cell">Change | Delete</td>
+              <td class="govuk-table__cell"><a href="ability-how">Change</a> | <a href="#">Delete</a></td>
 
             </tr>
 
 
             <tr class="govuk-table__row">
 
-              <td style="color:#1d70b8" class="govuk-table__cell"><strong>a</strong></td>
+              <td class="govuk-table__cell"><strong>a</strong></td>
 
               <td class="govuk-table__cell"><strong></strong></td>
 
 
               <td class="govuk-table__cell"></td>
 
-              <td class="govuk-table__cell">Change | Delete</td>
+              <td class="govuk-table__cell"><a href="ability-how">Change</a> | <a href="#">Delete</a></td>
 
             </tr>
 
@@ -84,7 +80,7 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
       <div class="moj-scrollable-pane">
         <table class="govuk-table">
 
-          <caption class="govuk-table__caption--m" style="text-align:left"><h2 class="govuk-heading-l">At interview</h2></caption>
+          <caption class="govuk-table__caption--m" style="text-align:left"><h2 style="color:#1d70b8" class="govuk-heading-l">At interview</h2></caption>
 
           <thead class="govuk-table__head">
             <tr class="govuk-table__row">
@@ -103,14 +99,14 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
 
             <tr class="govuk-table__row">
 
-              <td style="color:#1d70b8" class="govuk-table__cell"><strong></strong></td>
+              <td  class="govuk-table__cell"><strong>XX</strong></td>
 
-              <td class="govuk-table__cell"><strong></strong></td>
+              <td class="govuk-table__cell"><strong>XX</strong></td>
 
 
               <td class="govuk-table__cell"></td>
 
-              <td class="govuk-table__cell">Change | Delete</td>
+              <td class="govuk-table__cell"><a href="ability-how">Change</a> | <a href="#">Delete</a></td>
 
             </tr>
 
@@ -118,11 +114,22 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
         </table>
 
       </div>
+      <div>
 
+        {% from "govuk/components/button/macro.njk" import govukButton %}
 
+        {{ govukButton({
+          text: "Add another assessment",
+          classes: "govuk-button--secondary"
+        }) }}
+      </div>
+      <div class="govuk-!-margin-top-9">
+        {% from "govuk/components/button/macro.njk" import govukButton %}
 
-      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
-
+{{ govukButton({
+  text: "Continue vacancy set-up"
+}) }}
+      </div>
     </form>
 
     {% endblock %}
