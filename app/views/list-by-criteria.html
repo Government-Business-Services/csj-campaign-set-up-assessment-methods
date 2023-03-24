@@ -14,26 +14,26 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 
 
-{% if data['methods-behaviours-int-2'].length > 0 %}
+{% if data['methods-behaviours-int-2'] != ""  %}
 {% set tum = data['methods-behaviours-app'].length %}
 {% else %}
 {% endif %}
 
 
 
-{% if data['methods-behaviours-app'].length > 0 %}
+{% if data['methods-behaviours-app'] != ""  %}
 {% set tum = data['methods-behaviours-app'].length %}
 {% else %}
 {% endif %}
 
 
-{% if data['criteria-behaviours'].length > 0 %}
+{% if data['criteria-behaviours'] != ""  %}
 {% set num = data['criteria-behaviours'].length %}
 {% else %}
 {% endif %}
 
 
-{% if data['methods-experience-int-1'].length > 0 %}
+{% if data['methods-experience-int-1'] != ""  %}
 {% set met = data['methods-experience-int-1'].length %}
 {% else %}
 {% endif %}
