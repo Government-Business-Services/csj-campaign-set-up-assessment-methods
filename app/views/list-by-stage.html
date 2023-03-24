@@ -2,12 +2,14 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% block pageTitle %}
-Assessments – {{ serviceName }} – GOV.UK Prototype Kit
+My list – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
 
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+
 {% endblock %}
 
 {% block content %}
@@ -30,11 +32,11 @@ Assessments – {{ serviceName }} – GOV.UK Prototype Kit
           <thead class="govuk-table__head">
             <tr class="govuk-table__row" style="background:#f3f2f1">
 
-              <th style="width:15%" scope="col" class="govuk-table__header">Type</th>
-
-              <th style="width:30%" scope="col" class="govuk-table__header">Criteria</th>
+              <th style="padding-left:10px;width:25%" scope="col" class="govuk-table__header">Criteria</th>
 
               <th style="width:30%" scope="col" class="govuk-table__header">Method(s)</th>
+
+              <th style="width:20%" scope="col" class="govuk-table__header">Stage</th>
 
               <th style="width:25%" scope="col" class="govuk-table__header">Actions</th>
             </tr>

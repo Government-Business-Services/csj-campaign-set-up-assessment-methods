@@ -1,11 +1,13 @@
 {% extends "layouts/main.html" %}
 
 {% block pageTitle %}
-How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Prototype Kit
+Strengths – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
 <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+    <a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+
 {% endblock %}
 
 {% block content %}
@@ -35,10 +37,10 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
   <!-- <p class="govuk-body-s"><a onclick="showDiv('summ')" href="#" style="color: skyblue;float:right;font-size:20px">◉</a></p> -->
   <div class="govuk-grid-row">
     <h1 class="govuk-heading-l">
-      How will you assess these {{ data['method'] }}?
+      How will you assess these strengths?
     </h1>
 
-    <div class="govuk-grid-column-two-thirds" style="border-radius:8px;border:1px solid lightgrey">
+    <div class="govuk-grid-column-three-quarters" style="border-radius:8px;border:1px solid lightgrey">
 
 <div id="list" style="display:none" >
 
@@ -113,8 +115,6 @@ How will you assess {{ data['method']}}? – {{ serviceName }} – GOV.UK Protot
         </div>
     </div>
     <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
-<div style="float:right">
-    <a href="#"  onclick="showDiv('reveal')">ON</a><br>
-    <a href="#"  onclick="hideDiv('reveal')">OFF</a></div>
+
   </form>
   {% endblock %}
