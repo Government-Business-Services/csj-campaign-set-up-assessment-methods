@@ -26,10 +26,8 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-      {% if data['methods'] == "behaviours"  %}
-      {% elif data['methods'] == "experience"  %}
-      {% elif data['methods'] == "abilities"  %}
-      {% elif data['methods'] == "strengths"  %}
+
+
 
       <div class="moj-scrollable-pane">
         <table class="govuk-table">
@@ -47,35 +45,23 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
           </thead>
           <tbody class="govuk-table__body">
 
-            {% if data['methods-behaviours-int-2'] != ""  %}
-            {% set tum = data['methods-behaviours-app'].length %}
-            {% else %}
-            {% endif %}
 
 
 
-            {% if data['methods-behaviours-app'] != ""  %}
-            {% set tum = data['methods-behaviours-app'].length %}
-            {% else %}
-            {% endif %}
+
+            {% set num = data['criteria-behaviours'] | length %}
 
 
-            {% if data['criteria-behaviours'] != ""  %}
-            {% set num = data['criteria-behaviours'].length %}
-            {% else %}
-            {% endif %}
 
 
-            {% if data['methods-experience-int-1'] != ""  %}
-            {% set met = data['methods-experience-int-1'].length %}
-            {% else %}
-            {% endif %}
-
-            {% for items in data['criteria-behaviours'] | slice(num) %}
-            {% for things in data['methods-behaviours-app'] | slice(num) %}
 
 
-            {% endfor %}
+
+            {% for items in data['criteria-behaviours'] | slice(1) %}
+            {% for things in data['methods-behaviours-app'] | slice(1) %}
+
+{{ items}} {{ things}}
+
 
             <tr class="govuk-table__row">
 
@@ -85,13 +71,13 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
-              <td class="govuk-table__cell"> {{ data['methods-behaviours-app'].slice(1) | first }}
+              <td class="govuk-table__cell"> {{ things }}
 
-
-
+  {% endfor %}
+{{ data['methods-behaviours-int']}}
               </td>
 
-              <td class="govuk-table__cell">{{ data['methods-behaviours-int'].slice(1) | first }}</td>
+              <td class="govuk-table__cell">{{ data['methods-behaviours-int-1']}}</td>
               <td class="govuk-table__cell"><a href="behaviours-how">Change</a> | <a href="#">Delete</a></td>
               {% endfor %}
 
@@ -102,9 +88,8 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
         </table>
       </div>
 
-      {% endif %}
 
-      {% if data['criteria-experience'] != ""  %}
+      {% if data['method'] == "experience"  %}
       <div id = "exp" style="" class="moj-scrollable-pane">
         <table class="govuk-table">
           <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Experience</h2></caption>
