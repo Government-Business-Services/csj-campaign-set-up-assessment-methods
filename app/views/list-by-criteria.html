@@ -14,30 +14,6 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
 {% block content %}
 
 
-{% if data['methods-behaviours-int-2'] != ""  %}
-{% set tum = data['methods-behaviours-app'].length %}
-{% else %}
-{% endif %}
-
-
-
-{% if data['methods-behaviours-app'] != ""  %}
-{% set tum = data['methods-behaviours-app'].length %}
-{% else %}
-{% endif %}
-
-
-{% if data['criteria-behaviours'] != ""  %}
-{% set num = data['criteria-behaviours'].length %}
-{% else %}
-{% endif %}
-
-
-{% if data['methods-experience-int-1'] != ""  %}
-{% set met = data['methods-experience-int-1'].length %}
-{% else %}
-{% endif %}
-
 <form class="form" action="#" method="post">
 
   <div class="govuk-grid-row">
@@ -50,6 +26,10 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
 
 
 
+      {% if data['methods'] == "behaviours"  %}
+      {% elif data['methods'] == "experience"  %}
+      {% elif data['methods'] == "abilities"  %}
+      {% elif data['methods'] == "strengths"  %}
 
       <div class="moj-scrollable-pane">
         <table class="govuk-table">
@@ -66,6 +46,30 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
 
           </thead>
           <tbody class="govuk-table__body">
+
+            {% if data['methods-behaviours-int-2'] != ""  %}
+            {% set tum = data['methods-behaviours-app'].length %}
+            {% else %}
+            {% endif %}
+
+
+
+            {% if data['methods-behaviours-app'] != ""  %}
+            {% set tum = data['methods-behaviours-app'].length %}
+            {% else %}
+            {% endif %}
+
+
+            {% if data['criteria-behaviours'] != ""  %}
+            {% set num = data['criteria-behaviours'].length %}
+            {% else %}
+            {% endif %}
+
+
+            {% if data['methods-experience-int-1'] != ""  %}
+            {% set met = data['methods-experience-int-1'].length %}
+            {% else %}
+            {% endif %}
 
             {% for items in data['criteria-behaviours'] | slice(num) %}
             {% for things in data['methods-behaviours-app'] | slice(num) %}
@@ -97,6 +101,8 @@ My list – {{ serviceName }} – GOV.UK Prototype Kit
           </tbody>
         </table>
       </div>
+
+      {% endif %}
 
       {% if data['criteria-experience'] != ""  %}
       <div id = "exp" style="" class="moj-scrollable-pane">
