@@ -1,0 +1,297 @@
+{% set criteriaTechnicalArray = [] %}
+
+{% if (data['criteria-technical-1'] | length) > 0 %}
+{% set criteriaTechnicalArray = (criteriaTechnicalArray.push(data['criteria-technical-1']), criteriaTechnicalArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-technical-2'] | length) > 0 %}
+{% set criteriaTechnicalArray = (criteriaTechnicalArray.push(data['criteria-technical-2']), criteriaTechnicalArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-technical-3'] | length) > 0 %}
+{% set criteriaTechnicalArray = (criteriaTechnicalArray.push(data['criteria-technical-3']), criteriaTechnicalArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-technical-4'] | length) > 0 %}
+{% set criteriaTechnicalArray = (criteriaTechnicalArray.push(data['criteria-technical-4']), criteriaTechnicalArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-technical-5'] | length) > 0 %}
+{% set criteriaTechnicalArray = (criteriaTechnicalArray.push(data['criteria-technical-5']), criteriaTechnicalArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-technical-6'] | length) > 0 %}
+{% set criteriaTechnicalArray = (criteriaTechnicalArray.push(data['criteria-technical-6']), criteriaTechnicalArray) %}
+{% else %}
+{% endif %}
+
+{% set methodsTechnicalAppArray = [] %}
+
+{% if (data['methods-technical-app-1'] | length) > 0 %}
+{% set methodsTechnicalAppArray = (methodsTechnicalAppArray.push(data['methods-technical-app-1']), methodsTechnicalAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-app-2'] | length) > 0 %}
+{% set methodsTechnicalAppArray = (methodsTechnicalAppArray.push(data['methods-technical-app-2']), methodsTechnicalAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-app-3'] | length) > 0 %}
+{% set methodsTechnicalAppArray = (methodsTechnicalAppArray.push(data['methods-technical-app-3']), methodsTechnicalAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-app-4'] | length) > 0 %}
+{% set methodsTechnicalAppArray = (methodsTechnicalAppArray.push(data['methods-technical-app-4']), methodsTechnicalAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-app-5'] | length) > 0 %}
+{% set methodsTechnicalAppArray = (methodsTechnicalAppArray.push(data['methods-technical-app-5']), methodsTechnicalAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-app-6'] | length) > 0 %}
+{% set methodsTechnicalAppArray = (methodsTechnicalAppArray.push(data['methods-technical-app-6']), methodsTechnicalAppArray) %}
+{% else %}
+{% endif %}
+
+{% set methodsTechnicalIntArray = [] %}
+
+{% if (data['methods-technical-int-1'] | length) > 0 %}
+{% set methodsTechnicalIntArray = (methodsTechnicalIntArray.push(data['methods-technical-int-1']), methodsTechnicalIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-int-2'] | length) > 0 %}
+{% set methodsTechnicalIntArray = (methodsTechnicalIntArray.push(data['methods-technical-int-2']), methodsTechnicalIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-int-3'] | length) > 0 %}
+{% set methodsTechnicalIntArray = (methodsTechnicalIntArray.push(data['methods-technical-int-3']), methodsTechnicalIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-int-4'] | length) > 0 %}
+{% set methodsTechnicalIntArray = (methodsTechnicalIntArray.push(data['methods-technical-int-4']), methodsTechnicalIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-int-5'] | length) > 0 %}
+{% set methodsTechnicalIntArray = (methodsTechnicalIntArray.push(data['methods-technical-int-5']), methodsTechnicalIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-technical-int-6'] | length) > 0 %}
+{% set methodsTechnicalIntArray = (methodsTechnicalIntArray.push(data['methods-technical-int-6']), methodsTechnicalIntArray) %}
+{% else %}
+{% endif %}
+
+
+{% if (criteriaTechnicalArray|length > 0) and (methodsTechnicalAppArray|length > 0) and (methodsTechnicalIntArray |length > 0) %}
+
+<div id = "TechnicalMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Technical skills</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black;">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" style="border-bottom:1px solid lightgrey">
+          {% set num = criteriaTechnicalArray | length  %}
+
+          <td class="govuk-table__cell">
+            {% for items in criteriaTechnicalArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell">
+            {% for things in methodsTechnicalAppArray | slice(num) %}
+            {% for thing in things %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li>{{ thing }}</li>
+            </ul>
+            {% endfor %}  {% endfor %}
+          </td>
+          <td class="govuk-table__cell">
+            {% for stuff in methodsTechnicalIntArray | slice(num) %}
+            {% for stiff in stuff %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li>{{ stiff  }}</li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+        <td class="govuk-table__cell">
+          {% for remover in criteriaTechnicalArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+            <li><a href="skills-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% elif (criteriaTechnicalArray|length > 0) and (methodsTechnicalAppArray|length > 0) %}
+
+<div id = "strMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Technical skills</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" style="border-bottom:1px solid lightgrey">
+          {% set num = criteriaTechnicalArray | length  %}
+
+          <td class="govuk-table__cell">
+            {% for items in criteriaTechnicalArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell">
+            {% for things in methodsTechnicalAppArray | slice(num) %}
+            {% for thing in things %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li>{{ thing }}</li>
+            </ul>
+            {% endfor %}  {% endfor %}
+          </td>
+          <td class="govuk-table__cell">
+          </td>
+        <td class="govuk-table__cell">
+          {% for remover in criteriaTechnicalArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+            <li><a href="skills-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+
+
+
+  </table>
+</div>
+
+{% elif (criteriaTechnicalArray|length > 0) and (methodsTechnicalIntArray |length > 0) %}
+
+
+<div id = "strMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Technical skills</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" style="border-bottom:1px solid lightgrey">
+          {% set num = criteriaTechnicalArray | length  %}
+
+          <td class="govuk-table__cell">
+            {% for items in criteriaTechnicalArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell">
+          </td>
+          <td class="govuk-table__cell">
+            {% for stuff in methodsTechnicalIntArray | slice(num) %}
+            {% for stiff in stuff %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li>{{ stiff  }}</li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+        <td class="govuk-table__cell">
+          {% for remover in criteriaTechnicalArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+            <li><a href="skills-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% elif (criteriaTechnicalArray|length > 0) %}
+
+<div id = "strMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Technical skills</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" style="border-bottom:1px solid lightgrey">
+          {% set num = criteriaTechnicalArray | length  %}
+
+          <td class="govuk-table__cell">
+            {% for items in criteriaTechnicalArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell">
+          </td>
+          <td class="govuk-table__cell">
+          </td>
+        <td class="govuk-table__cell">
+          {% for remover in criteriaTechnicalArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+            <li><a href="skills-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+{% endif %}

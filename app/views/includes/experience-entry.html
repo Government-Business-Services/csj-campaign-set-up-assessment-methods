@@ -1,0 +1,297 @@
+{% set criteriaExpArray = [] %}
+
+{% if (data['criteria-experience-1'] | length) > 0 %}
+{% set criteriaExpArray = (criteriaExpArray.push(data['criteria-experience-1']), criteriaExpArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-experience-2'] | length) > 0 %}
+{% set criteriaExpArray = (criteriaExpArray.push(data['criteria-experience-2']), criteriaExpArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-experience-3'] | length) > 0 %}
+{% set criteriaExpArray = (criteriaExpArray.push(data['criteria-experience-3']), criteriaExpArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-experience-4'] | length) > 0 %}
+{% set criteriaExpArray = (criteriaExpArray.push(data['criteria-experience-4']), criteriaExpArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-experience-5'] | length) > 0 %}
+{% set criteriaExpArray = (criteriaExpArray.push(data['criteria-experience-5']), criteriaExpArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['criteria-experience-6'] | length) > 0 %}
+{% set criteriaExpArray = (criteriaExpArray.push(data['criteria-experience-6']), criteriaExpArray) %}
+{% else %}
+{% endif %}
+
+{% set methodsExpAppArray = [] %}
+
+{% if (data['methods-experience-app-1'] | length) > 0 %}
+{% set methodsExpAppArray = (methodsExpAppArray.push(data['methods-experience-app-1']), methodsExpAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-app-2'] | length) > 0 %}
+{% set methodsExpAppArray = (methodsExpAppArray.push(data['methods-experience-app-2']), methodsExpAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-app-3'] | length) > 0 %}
+{% set methodsExpAppArray = (methodsExpAppArray.push(data['methods-experience-app-3']), methodsExpAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-app-4'] | length) > 0 %}
+{% set methodsExpAppArray = (methodsExpAppArray.push(data['methods-experience-app-4']), methodsExpAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-app-5'] | length) > 0 %}
+{% set methodsExpAppArray = (methodsExpAppArray.push(data['methods-experience-app-5']), methodsExpAppArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-app-6'] | length) > 0 %}
+{% set methodsExpAppArray = (methodsExpAppArray.push(data['methods-experience-app-6']), methodsExpAppArray) %}
+{% else %}
+{% endif %}
+
+{% set methodsExpIntArray = [] %}
+
+{% if (data['methods-experience-int-1'] | length) > 0 %}
+{% set methodsExpIntArray = (methodsExpIntArray.push(data['methods-experience-int-1']), methodsExpIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-int-2'] | length) > 0 %}
+{% set methodsExpIntArray = (methodsExpIntArray.push(data['methods-experience-int-2']), methodsExpIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-int-3'] | length) > 0 %}
+{% set methodsExpIntArray = (methodsExpIntArray.push(data['methods-experience-int-3']), methodsExpIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-int-4'] | length) > 0 %}
+{% set methodsExpIntArray = (methodsExpIntArray.push(data['methods-experience-int-4']), methodsExpIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-int-5'] | length) > 0 %}
+{% set methodsExpIntArray = (methodsExpIntArray.push(data['methods-experience-int-5']), methodsExpIntArray) %}
+{% else %}
+{% endif %}
+
+{% if (data['methods-experience-int-6'] | length) > 0 %}
+{% set methodsExpIntArray = (methodsExpIntArray.push(data['methods-experience-int-6']), methodsExpIntArray) %}
+{% else %}
+{% endif %}
+
+
+{% if (criteriaExpArray|length > 0) and (methodsExpAppArray|length > 0) and (methodsExpIntArray |length > 0) %}
+
+<div id = "expMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Experience</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black;">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" >
+          {% set num = criteriaExpArray | length  %}
+
+          <td class="govuk-table__cell" >
+            {% for items in criteriaExpArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell" >
+            {% for things in methodsExpAppArray | slice(num) %}
+            {% for thing in things %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li>{{ thing }}</li>
+            </ul>
+            {% endfor %}  {% endfor %}
+          </td>
+          <td class="govuk-table__cell" >
+            {% for stuff in methodsExpIntArray | slice(num) %}
+            {% for stiff in stuff %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li>{{ stiff  }}</li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+        <td class="govuk-table__cell" >
+          {% for remover in criteriaExpArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+            <li><a href="experience-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% elif (criteriaExpArray|length > 0) and (methodsExpAppArray|length > 0) %}
+
+<div id = "strMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Experience</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" >
+          {% set num = criteriaExpArray | length  %}
+
+          <td class="govuk-table__cell" >
+            {% for items in criteriaExpArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}"  >
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell" >
+            {% for things in methodsExpAppArray | slice(num) %}
+            {% for thing in things %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li>{{ thing }}</li>
+            </ul>
+            {% endfor %}  {% endfor %}
+          </td>
+          <td class="govuk-table__cell" >
+          </td>
+        <td class="govuk-table__cell" >
+          {% for remover in criteriaExpArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+            <li><a href="experience-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+
+
+
+  </table>
+</div>
+
+{% elif (criteriaExpArray|length > 0) and (methodsExpIntArray |length > 0) %}
+
+
+<div id = "strMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Experience</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" style="border-bottom:1px solid lightgrey">
+          {% set num = criteriaExpArray | length  %}
+
+          <td class="govuk-table__cell">
+            {% for items in criteriaExpArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell" >
+          </td>
+          <td class="govuk-table__cell" >
+            {% for stuff in methodsExpIntArray | slice(num) %}
+            {% for stiff in stuff %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}" >
+              <li>{{ stiff  }}</li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+        <td class="govuk-table__cell" >
+          {% for remover in criteriaExpArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><a href="experience-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% elif (criteriaExpArray|length > 0) %}
+
+<div id = "strMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Experience</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" >
+          {% set num = criteriaExpArray | length  %}
+
+          <td class="govuk-table__cell">
+            {% for items in criteriaExpArray | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><strong>{{ items }}</strong></li>
+            </ul>
+            {% endfor %}
+          </td>
+          <td class="govuk-table__cell">
+          </td>
+          <td class="govuk-table__cell">
+          </td>
+        <td class="govuk-table__cell" >
+          {% for remover in criteriaExpArray | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><a href="experience-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}</td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+{% endif %}

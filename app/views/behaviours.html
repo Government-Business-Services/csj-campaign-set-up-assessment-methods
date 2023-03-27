@@ -10,7 +10,7 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
-<form class="form" action="behaviours-how?method=behaviours" method="post">
+<form class="form" action="behaviours-how" method="post">
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
 
@@ -23,7 +23,7 @@ Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
       <p class="govuk-body-m">Behaviours assess the actions and activities that people do which result in effective performance in a job.</p>
 
 
-<div class="govuk-form-group" style="border-radius:5px;border:1px solid lightgrey;padding:20px">
+<div class="govuk-form-group">
       {{ govukCheckboxes({
         idPrefix: "criteria-behaviours",
         id: "criteria-behaviours",

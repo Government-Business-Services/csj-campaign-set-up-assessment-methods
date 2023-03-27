@@ -7,7 +7,6 @@ window.GOVUKPrototypeKit.documentReady(() => {
   // Add JavaScript here
 
 
-
   function showDiv(div){
     document.getElementById(div).style.display = 'block';
   }

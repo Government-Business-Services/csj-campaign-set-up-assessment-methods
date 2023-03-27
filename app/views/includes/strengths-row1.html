@@ -1,0 +1,22 @@
+{% if (data['criteria-strength']|length > 0) and (data['method-strength-app']|length > 0) and (data['method-strength-int']|length > 0) %}
+
+<td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+<td class="govuk-table__cell">{{ data['method-strength-app'] }}</td>
+<td class="govuk-table__cell">{{ data['method-strength-int'] }}</td>
+{% endif %}
+
+
+<td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+<td class="govuk-table__cell">-</td>
+<td class="govuk-table__cell">-</td>
+{% endif %}
+
+
+<td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+<td class="govuk-table__cell">{{ data['method-strength-app'] }}</td>
+<td class="govuk-table__cell">-</td>
+
+
+<td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+<td class="govuk-table__cell"></td>
+<td class="govuk-table__cell">{{ data['method-strength-int'] }}</td>

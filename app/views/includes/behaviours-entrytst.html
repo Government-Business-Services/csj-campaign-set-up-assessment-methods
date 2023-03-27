@@ -1,0 +1,58 @@
+{% if (data['criteria-behaviours']|length > 0) and (data['methods-behaviours-app']|length > 0) and (data['methods-behaviours-int']|length > 0) %}
+{% set num = data['criteria-behaviours'] | length %}
+
+
+<div id = "behaviours" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Behaviours</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:25%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:25%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:25%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+
+        <td class="govuk-table__cell">
+          {% for items in data['criteria-behaviours'] | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><strong>{{ items }}</strong></li>
+          </ul>
+          {% endfor %}
+        </td>
+        <td class="govuk-table__cell">
+
+          {% for stuff in data['methods-behaviours-app'] | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li>{{ stuff }}</li>
+          </ul>
+          {% endfor %}
+        </td>
+        <td class="govuk-table__cell">
+          {% for things in data['methods-behaviours-int'] | slice(num) %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li>{{ things }}</li>
+          </ul>
+          {% endfor %}
+        </td>
+        <td class="govuk-table__cell">
+          <td class="govuk-table__cell">
+            {% for remover in data['criteria-behaviours'] | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><a href="behaviours">Change</a> | <a href="#">Delete</a></li>
+            </ul>
+            {% endfor %}
+          </td>
+
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+  {% else %}
+  {% endif %}

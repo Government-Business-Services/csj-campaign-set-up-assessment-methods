@@ -1,0 +1,120 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Select behaviours – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+{% endblock %}
+
+{% block content %}
+    <form class="form" action="list-by-criteria" method="post">
+{% set behaviours = [['Seeing the big picture','Understand how your role fits with and supports organisational objectives. Recognise the wider Civil Service priorities and ensure work is in the national interest'], ['Changing and Improving','Seek out opportunities to create effective change and suggest innovative ideas for improvement. Review ways of working, including seeking and providing feedback'], ['Making Effective Decisions','Use evidence and knowledge to support accurate, expert decisions and advice. Carefully consider alternative options, implications and risks of decisions'], ['Leadership','Show pride and passion for public service. Create and engage others in delivering a shared vision. Value difference, diversity and inclusion, ensuring fairness and opportunity for all'], ['Communicating and Influencing','Communicate purpose and direction with clarity, integrity and enthusiasm. Respect the needs, responses and opinions of others'], ['Working together','Form effective partnerships and relationships with people both internally and externally, from a range of diverse backgrounds, sharing information, resources and support'], ['Developing Self and Others','Focus on continuous learning and development for self, others and the organisation as a whole'], ['Managing a quality service','Deliver service objectives with professional excellence, expertise and efficiency, taking account of diverse customer needs'], ['Delivering at pace','Take responsibility for delivering timely and quality results with focus and drive'] ] %}
+
+{% set behavioursAndMethods = [
+  ['Seeing the big picture','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Changing and Improving','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Making Effective Decisions','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Leadership','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Communicating and Influencing','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Working together','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Developing Self and Others','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Managing a quality service','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'],
+  ['Delivering at pace','Statement of suitability','Written behaviours statements','Civil Service Judgement Test','Interview questions','Presentation'] ] %}
+
+
+
+
+{% for a,b,c,d,e,f in behavioursAndMethods %}
+
+{% if a in data['criteria-behaviours']%}
+
+{{ loop.index0 }}
+
+
+<h2 class="govuk-heading-m">{{ a }}</h2>
+
+
+
+    <h3 class="govuk-heading-m">At application</h3>
+    {{ govukCheckboxes({
+      idPrefix: "behavioursAppMethods",
+      id: "ab",
+      name: "ab",
+      classes: "govuk-checkboxes",
+      fieldset: {
+        legend: {
+          text: "",
+          isPageHeading: false,
+          classes: "govuk-fieldset__legend--l"
+        }
+      },
+      items: [
+      {
+        checked: checked('a', b),
+        text: b,
+        value: b
+      },
+      {
+        name: "ac",
+        value: c,
+        text: c,
+        checked: checked('a', c)
+      },
+      {
+        name: "ad",
+        value: d,
+        text: d,
+        checked: checked('a', d)
+      }
+      ]
+    }) }}
+
+
+
+
+
+
+
+    <h3 class="govuk-heading-m">At interview</h3>
+
+
+    <p class="govuk-body-l">
+
+
+      {{ govukCheckboxes({
+        idPrefix: a,
+        id: a,
+        name: a,
+        classes: "govuk-checkboxes",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: e,
+          text: e,
+          checked: checked('a', e)
+        },
+        {
+          value: f,
+          text: f,
+          checked: checked('a', f)
+        }
+        ]
+      }) }}
+{%endif%}
+{%endfor  %}
+
+
+
+
+      <button class="govuk-button govuk-!-margin-top-6" data-module="govuk-button">Continue</button>
+    </form>
+    {% endblock %}

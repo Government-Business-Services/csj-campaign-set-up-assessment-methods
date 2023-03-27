@@ -2,7 +2,7 @@
 {% from "govuk/components/input/macro.njk" import govukInput %}
 
 {% block pageTitle %}
-Experience – {{ serviceName }} – GOV.UK Prototype Kit
+Technical skills – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block beforeContent %}
@@ -12,53 +12,47 @@ Experience – {{ serviceName }} – GOV.UK Prototype Kit
 {% endblock %}
 
 {% block content %}
-<form class="form" action="experience-how?method=experience" method="post">
+<form class="form" action="skills-how" method="post">
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-three-quarters">
       <h1 class="govuk-heading-xl">
-        What experience do you want to assess candidates on?
+        What technical skills do you want to assess candidates on?
       </h1>
 
-      <p class="govuk-body-m">You should use experience to assess a candidate's knowlege of an activity or subject gained through involvement in or exposure to it.</p>
 
         {{ govukTextarea({
           label: {
-            text: "Experience 1"
+            text: "Technical skill 1"
           },
-          id: "criteria-experience-1",
+          id: "criteria-technical-1",
           rows: "2",
-          name: "criteria-experience-1",
-          value: data['criteria-experience-1']
+          name: "criteria-technical-1",
+          value: data['criteria-technical-1']
         }) }}
 
 
-      <!-- <a id="thirst1" class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('exp2')">Add another experience</a> -->
-
 
         {{ govukTextarea({
           label: {
-            text: "Experience 2"
+            text: "Technical skill 2"
           },
-          id: "criteria-experience-2",
+          id: "criteria-technical-2",
           rows: "2",
-          name: "criteria-experience-2",
-          value: data['criteria-experience-2']
+          name: "criteria-technical-2",
+          value: data['criteria-technical-2']
         }) }}
 
-        <!-- <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('exp3')">Add another experience</a> -->
-        <!-- <a class="govuk-body-m" style="color:#1d70b8;float:right" onclick="hideAndKillDiv('exp2','criteria-experience-2')">Remove</a> -->
-
 
 
         {{ govukTextarea({
           label: {
-            text: "Experience 3"
+            text: "Technical skill 3"
           },
-          id: "criteria-experience-3",
+          id: "criteria-technical-3",
           rows: "2",
-          name: "criteria-experience-3",
-          value: data['criteria-experience-3']
+          name: "criteria-technical-3",
+          value: data['criteria-technical-3']
         }) }}
 
 
@@ -66,19 +60,19 @@ Experience – {{ serviceName }} – GOV.UK Prototype Kit
         <!-- <a class="govuk-body-m" style="color:#1d70b8;float:right" onclick="hideAndKillDiv('exp3','criteria-experience-3')">Remove</a> -->
 
 
-        <a id="cta" class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('more')">Add additional experience</a>
+        <a id="cta" class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('more')">Add another skill</a>
 
 
         <div class="govuk-!-margin-top-6 govuk-!-margin-bottom-2" id="more" style="display:none">
 
           {{ govukTextarea({
             label: {
-              text: "Experience 4"
+              text: "Technical skill 4"
             },
-            id: "criteria-experience-4",
+            id: "criteria-technical-4",
             rows: "2",
-            name: "criteria-experience-4",
-            value: data['criteria-experience-4']
+            name: "criteria-technical-4",
+            value: data['criteria-technical-4']
           }) }}
 
 
@@ -87,12 +81,12 @@ Experience – {{ serviceName }} – GOV.UK Prototype Kit
 
           {{ govukTextarea({
             label: {
-              text: "Experience 5"
+              text: "Technical skill 5"
             },
-            id: "criteria-experience-5",
+            id: "criteria-technical-5",
             rows: "2",
-            name: "criteria-experience-5",
-            value: data['criteria-experience-5']
+            name: "criteria-technical-5",
+            value: data['criteria-technical-5']
           }) }}
 
           <!-- <a class="govuk-body-m" style="color:#1d70b8" onclick="showDiv('exp3')">Add another experience</a> -->
@@ -102,12 +96,12 @@ Experience – {{ serviceName }} – GOV.UK Prototype Kit
 
           {{ govukTextarea({
             label: {
-              text: "Experience 6"
+              text: "Technical skill 6"
             },
-            id: "criteria-experience-6",
+            id: "criteria-technical-6",
             rows: "2",
-            name: "criteria-experience-6",
-            value: data['criteria-experience-6']
+            name: "criteria-technical-6",
+            value: data['criteria-technical-6']
           }) }}
 
 

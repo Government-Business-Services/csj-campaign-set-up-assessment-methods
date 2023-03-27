@@ -1,0 +1,62 @@
+
+
+
+{% if (data['criteria-strength']|length > 0) and (data['method-strength-app']|length > 0) and (data['method-strength-int']|length > 0) %}
+
+{% for items in data['criteria-strength'] | slice(1) %}
+<ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+  {% for things in data['method-strength-app'] %}
+  {% for stuff in data['method-strength-int'] %}
+  <li>{{ items }}{{ things }}{{ stuff }}</li>
+
+  <td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+  <td class="govuk-table__cell">{{ data['method-strength-app'] }}</td>
+  <td class="govuk-table__cell">{{ data['method-strength-int'] }}</td>
+
+
+
+</ul>
+{% endfor %}{% endfor %}{% endfor %}
+
+{% elif (data['criteria-strength']|length > 0) and (data['method-strength-app']|length > 0) %}
+{% for items in data['criteria-strength'] | slice(1) %}
+<ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+  {% for things in data['method-strength-app'] %}
+  <li>{{ items }}{{ things }}</li>
+</ul>
+{% endfor %}
+{% endfor %}
+
+<td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+<td class="govuk-table__cell">{{ data['method-strength-app'] }}</td>
+<td class="govuk-table__cell">-</td>
+
+
+{% elif (data['criteria-strength']|length > 0) and (data['method-strength-int']|length > 0) %}
+{% for items in data['criteria-strength'] | slice(1) %}
+<ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+  {% for things in data['method-strength-int'] %}
+  <li>{{ items }}{{ things }}</li>
+</ul>
+{% endfor %}
+{% endfor %}
+
+<td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+<td class="govuk-table__cell"></td>
+<td class="govuk-table__cell">{{ data['method-strength-int'] }}</td>
+
+
+{% elif (data['criteria-strength']|length > 0) %}
+{% for items in data['criteria-strength'] | slice(1) %}
+<ul class="govuk-list govuk-list--bullet {{ loop.index }}">
+  <li>{{ items }}</li>
+</ul>
+{% endfor %}
+
+<td class="govuk-table__cell">{{ data['criteria-strength'] }}</td>
+<td class="govuk-table__cell"></td>
+<td class="govuk-table__cell">-</td>
+
+
+{% else %}
+{% endif %}

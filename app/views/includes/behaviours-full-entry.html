@@ -1,0 +1,232 @@
+{% set criteriaBehavioursArray = [] %}
+
+{% if (data['criteria-behaviours'] | length) > 0 %}
+{% set criteriaBehavioursArray = (criteriaBehavioursArray.push(data['criteria-behaviours']), criteriaBehavioursArray) %}
+{% else %}
+{% endif %}
+
+
+{% set methodsBehavioursAppArray = [] %}
+
+{% if (data['methods-behaviours-app'] | length) > 0 %}
+{% set methodsBehavioursAppArray = (methodsBehavioursAppArray.push(data['methods-behaviours-app']), methodsBehavioursAppArray) %}
+{% else %}
+{% endif %}
+
+
+
+{% set methodsBehavioursIntArray = [] %}
+
+{% if (data['methods-behaviours-int'] | length) > 0 %}
+{% set methodsBehavioursIntArray = (methodsBehavioursIntArray.push(data['methods-behaviours-int']), methodsBehavioursIntArray) %}
+{% else %}
+{% endif %}
+
+
+
+{% if (criteriaBehavioursArray|length > 0) and (methodsBehavioursAppArray|length > 0) and (methodsBehavioursIntArray |length > 0) %}
+
+<div id = "BehavioursMethods" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Behaviours</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row" >
+          {% set num = criteriaBehavioursArray | length  %}
+
+          <td class="govuk-table__cell"  >
+            {% for items in criteriaBehavioursArray %}
+            {% for item in items %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><strong>{{ item  }}</strong></li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+          <td class="govuk-table__cell" >
+            {% for things in methodsBehavioursAppArray %}
+            {% for thing in things %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li>{{ thing }}</li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+          <td class="govuk-table__cell" >
+            {% for stuff in methodsBehavioursIntArray %}
+            {% for stiff in stuff | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li>{{ stiff }}</li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+        <td class="govuk-table__cell" >
+          {% for remover in criteriaBehavioursArray %}
+          {% for revolver in remover %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><a href="behaviours-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}{% endfor %}
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% elif (criteriaBehavioursArray|length > 0) and (methodsBehavioursAppArray|length > 0) %}
+
+<div id = "dfd" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Behaviours</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        {% set num = data['criteria-Behaviours'] | length  %}
+
+        <td class="govuk-table__cell">
+          {% for items in criteriaBehavioursArray %}
+          {% for item in items %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><strong>{{ item  }}</strong></li>
+          </ul>
+          {% endfor %}{% endfor %}
+        </td>
+        <td class="govuk-table__cell">
+          {% for things in methodsBehavioursAppArray %}
+          {% for thing in things %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li>{{ thing }}</li>
+          </ul>
+          {% endfor %}{% endfor %}
+        </td>
+          <td class="govuk-table__cell">-</td>
+        <td class="govuk-table__cell">
+          {% for remover in criteriaBehavioursArray %}
+          {% for revolver in remover %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><a href="behaviours-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}{% endfor %}
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+{% elif (criteriaBehavioursArray|length > 0) and (methodsBehavioursIntArray |length > 0) %}
+
+<div id = "ff" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Behaviours</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          {% for items in criteriaBehavioursArray %}
+          {% for item in items %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><strong>{{ item  }}</strong></li>
+          </ul>
+          {% endfor %}{% endfor %}
+        </td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell">
+            {% for stuff in methodsBehavioursIntArray %}
+            {% for stiff in stuff | slice(num) %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li>{{ stiff }}</li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+        <td class="govuk-table__cell">
+          {% for remover in criteriaBehavioursArray %}
+          {% for revolver in remover %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><a href="behaviours-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}{% endfor %}
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+
+{% elif (criteriaBehavioursArray|length > 0) %}
+
+<div id = "dd" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Behaviours</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header">Assess: Interview</th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        {% set num = criteriaBehavioursArray | length  %}
+
+          <td class="govuk-table__cell">
+            {% for items in criteriaBehavioursArray %}
+            {% for item in items %}
+            <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+              <li><strong>{{ item  }}</strong></li>
+            </ul>
+            {% endfor %}{% endfor %}
+          </td>
+          <td class="govuk-table__cell">-</td>
+          <td class="govuk-table__cell">-</td>
+        <td class="govuk-table__cell">
+
+          {% for remover in criteriaBehavioursArray %}
+          {% for revolver in remover %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><a href="behaviours-how?div={{ loop.index }}">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}{% endfor %}
+        </td>
+
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+{% endif %}

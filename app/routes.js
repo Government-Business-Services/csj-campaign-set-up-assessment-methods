@@ -29,7 +29,7 @@ router.post('/ass-handle', function (req, res){
     break
 
     case 'Technical skills':
-    res.redirect('experience')
+    res.redirect('skills')
     break
 
     case 'Strengths':

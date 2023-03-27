@@ -1,0 +1,152 @@
+{% extends "layouts/main.html" %}
+
+{% block pageTitle %}
+Experience – {{ serviceName }} – GOV.UK Prototype Kit
+{% endblock %}
+
+{% block beforeContent %}
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+<a class="govuk-!-margin-top-2" href="what-do-you-want-to-assess" style="font-size:16px;float:right"> Home</a>
+{% endblock %}
+
+{% block content %}
+<form class="form" action="list-by-criteria?method=experience" method="post">
+
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-three-quarters">
+      <h1 class="govuk-heading-xl">
+        How do you want to assess this experience?
+      </h1>
+
+      {% set experienceMethodsApp = ['Application form','CV','Statement of suitability'] %}
+      {% set experienceMethodsInt = ['Interview questions','Work samples or portfolio','Presentation'] %}
+
+      {% set expArray = [] %}
+
+
+      {% if (data['criteria-experience-1'] | length) > 0 %}
+      {% set expArray = (expArray.push(data['criteria-experience-1']), expArray) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-experience-2'] | length) > 0 %}
+      {% set expArray = (expArray.push(data['criteria-experience-2']), expArray) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-experience-3'] | length) > 0 %}
+      {% set expArray = (expArray.push(data['criteria-experience-3']), expArray) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-experience-4'] | length) > 0 %}
+      {% set expArray = (expArray.push(data['criteria-experience-4']), expArray) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-experience-5'] | length) > 0 %}
+      {% set expArray = (expArray.push(data['criteria-experience-5']), expArray) %}
+      {% else %}
+      {% endif %}
+
+      {% if (data['criteria-experience-6'] | length) > 0 %}
+      {% set expArray = (expArray.push(data['criteria-experience-6']), expArray) %}
+      {% else %}
+      {% endif %}
+
+      {% set count = expArray | length %}
+
+      {% for exps in expArray | slice(count)%}
+      {% for exp in exps  %}
+
+
+
+
+      <h2 class="govuk-heading-m">{{ exp }}</h2>
+
+      {% endfor %}
+
+      <h3 class="govuk-heading-m">
+        At application
+      </h3>
+
+      {% for i in experienceMethodsApp %}
+
+      {{ govukCheckboxes({
+        idPrefix: "method-experience-app",
+        id: "method-experience-app",
+        name: "method-experience-app",
+        classes: "govuk-checkboxes",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: i.loop,
+          text: i.loop,
+          checked: checked("method-experience-app", i.loop})
+        }
+        ]
+      }) }}
+
+      {% endfor %}
+
+
+
+      <h3 class="govuk-heading-m">
+        At interview
+      </h3>
+
+      {% for experience in experienceMethodsInt %}
+
+
+      {{ govukCheckboxes({
+        idPrefix: "method-experience-int",
+        id: "method-experience-int",
+        name: "method-experience-int",
+        classes: "govuk-checkboxes",
+        fieldset: {
+          legend: {
+            text: "",
+            isPageHeading: false,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        items: [
+        {
+          value: experience,
+          text: experience,
+          checked: checked("method-experience-int", experience)
+        }
+        ]
+      }) }}
+
+      {% endfor %}
+      {% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+  </div>
+      <button class="govuk-button govuk-!-margin-top-9" data-module="govuk-button">Continue</button>
+
+    </form>
+    {% endblock %}

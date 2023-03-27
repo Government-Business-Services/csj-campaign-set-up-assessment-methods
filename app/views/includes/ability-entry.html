@@ -1,0 +1,47 @@
+{% if (data['criteria-abilities']|length > 0) %}
+
+<div id = "ability" style="" class="moj-scrollable-pane">
+  <table class="govuk-table">
+    <caption class="govuk-table__caption"><h2 style="color:#1d70b8" class="govuk-heading-m">Abilities</h2></caption>
+
+    <thead class="govuk-table__head">
+      <tr class="govuk-table__row" style="background:#f3f2f1;border-bottom:1px solid black">
+        <th scope="col" style="width:25%" class="govuk-table__header">Criteria</th>
+        <th scope="col" style="width:30%" class="govuk-table__header">Assess: Apply</th>
+        <th scope="col" style="width:20%" class="govuk-table__header"></th>
+        <th scope="col" style="width:15%" class="govuk-table__header">Actions</th>
+      </tr>
+    </thead>
+
+    <tbody class="govuk-table__body">
+      <tr class="govuk-table__row">
+        <td class="govuk-table__cell">
+          {% for items in data['criteria-abilities'] %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><strong>{{ items }}</strong></li>
+          </ul>{% endfor %}
+          </td>
+        <td class="govuk-table__cell">
+          {% for items in data['criteria-abilities']  %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li>Online test</li>
+          </ul>
+          {% endfor %}
+
+        </td>
+        <td class="govuk-table__cell"></td>
+        <td class="govuk-table__cell">
+          {% for items in data['criteria-abilities']  %}
+          <ul class="govuk-list govuk-list--bullet-{{ loop.index }}">
+            <li><a href="ability">Change</a> | <a href="#">Delete</a></li>
+          </ul>
+          {% endfor %}
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+</div>
+
+{% else %}
+{% endif %}
